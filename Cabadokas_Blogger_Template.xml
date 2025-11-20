@@ -248,7 +248,7 @@
     
     <!-- LIGHTBOX (Zoom) -->
     <div id="lightbox" onclick="document.getElementById('lightbox').style.display='none'">
-      <span class="close">&times;</span>
+      <span class="close">&#215;</span>
       <img id="lightbox-img" src="" />
     </div>
 
