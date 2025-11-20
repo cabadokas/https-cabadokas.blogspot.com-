@@ -135,7 +135,7 @@
         <b:section id='sidebar'>
           
           <!-- MUSIC PLAYER -->
-          <b:widget id='HTML_Music' type='HTML' title='Zen Wellness Radio'>
+          <b:widget id='HTML1' type='HTML' title='Zen Wellness Radio'>
             <b:widget-settings><b:widget-setting name='content'><![CDATA[
               <div class="music-player">
                 <div><i class="fas fa-spa"></i> Cabadokas Radio</div>
@@ -157,7 +157,7 @@
           </b:widget>
 
           <!-- SOCIAL LINKS (18 Icons) -->
-          <b:widget id='HTML_Social' type='HTML' title='Connect With Us'>
+          <b:widget id='HTML2' type='HTML' title='Connect With Us'>
             <b:widget-settings><b:widget-setting name='content'><![CDATA[
               <div class="social-grid">
                 <a href="https://www.quora.com/profile/Cabadokas" class="social-icon" style="color:#B92B27"><i class="fa-brands fa-quora"></i></a>
@@ -183,7 +183,7 @@
           </b:widget>
 
           <!-- SHOPPING PARTNERS -->
-          <b:widget id='HTML_Affiliates' type='HTML' title='Shopping Partners'>
+          <b:widget id='HTML3' type='HTML' title='Shopping Partners'>
             <b:widget-settings><b:widget-setting name='content'><![CDATA[
               <div class="affiliate-list">
                 <a href="https://amazon.com" class="affiliate-item"><i class="fa-brands fa-amazon"></i> Amazon</a>
@@ -200,7 +200,7 @@
           </b:widget>
 
           <!-- ADSENSE -->
-          <b:widget id='HTML_AdSense' type='HTML'>
+          <b:widget id='HTML4' type='HTML'>
              <b:widget-settings><b:widget-setting name='content'><![CDATA[
                <div style="text-align:center; font-size:10px; color:#ccc;">ADVERTISEMENT</div>
                <!-- Your specific AdSense ID -->
