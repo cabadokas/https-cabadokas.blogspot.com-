@@ -63,10 +63,23 @@
     /* --- HEADER --- */
     #header-wrapper { text-align: center; padding: 20px; border-bottom: 1px solid #eee; }
     
-    /* --- NAVBAR --- */
-    .navbar { background: var(--primary); padding: 15px; text-align: center; position: sticky; top: 0; z-index: 100; }
-    .navbar a { color: white; font-weight: bold; margin: 0 12px; font-size: 14px; text-transform: uppercase; }
-    .navbar a:hover { text-decoration: underline; }
+    /* --- NAVBAR (DROPDOWN) --- */
+    .navbar { background: var(--primary); padding: 0; position: sticky; top: 0; z-index: 100; text-align: center; }
+    
+    /* Desktop Menu */
+    .menu-desktop { display: flex; justify-content: center; list-style: none; padding: 0; margin: 0; }
+    .menu-desktop li { position: relative; }
+    .menu-desktop a { display: block; color: white; padding: 15px 20px; font-weight: bold; text-transform: uppercase; font-size: 14px; }
+    .menu-desktop a:hover { background: rgba(0,0,0,0.1); }
+    
+    /* Dropdown Logic */
+    .dropdown-content { display: none; position: absolute; background-color: #fff; min-width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; text-align: left; }
+    .dropdown-content a { color: #333; padding: 12px 16px; text-decoration: none; display: block; border-bottom: 1px solid #eee; }
+    .dropdown-content a:hover { background-color: #f1f1f1; color: var(--primary); }
+    .dropdown:hover .dropdown-content { display: block; }
+    
+    /* Mobile Menu (Select Box) */
+    .menu-mobile { display: none; width: 100%; padding: 10px; background: var(--primary); color: white; border: none; font-weight: bold; text-transform: uppercase; }
 
     /* --- MAIN FLEX LAYOUT (LEFT SIDEBAR / RIGHT CONTENT) --- */
     #content-wrapper {
@@ -93,6 +106,8 @@
       #content-wrapper { flex-direction: column; }
       #sidebar-wrapper { width: 100%; order: 2; } /* Sidebar below on mobile */
       #main-wrapper { width: 100%; order: 1; }
+      .menu-desktop { display: none; }
+      .menu-mobile { display: block; }
     }
 
     /* --- WIDGET STYLES --- */
@@ -144,14 +159,38 @@
       </b:section>
     </header>
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR (DROPDOWN ENABLED) -->
     <nav class='navbar'>
-      <a href='https://cabadokas.netlify.app/' target='_blank'>MAIN WEBSITE</a>
-      <a href='/'>HOME</a>
-      <a href='/p/privacy-policy.html'>PRIVACY POLICY</a>
-      <a href='/search/label/HEALTH'>HEALTH</a>
-      <a href='/search/label/BEAUTY'>BEAUTY</a>
-      <a href='/search/label/WEIGHT%20LOSS'>WEIGHT LOSS</a>
+      
+      <!-- Desktop View -->
+      <ul class="menu-desktop">
+        <li><a href='https://cabadokas.netlify.app/' target='_blank'>MAIN WEBSITE</a></li>
+        <li><a href='/'>HOME</a></li>
+        <li class="dropdown">
+          <a href="javascript:void(0)">BROWSE PAGES &#9662;</a>
+          <div class="dropdown-content">
+            <!-- ADD NEW PAGES BELOW THIS LINE -->
+            <a href='/p/privacy-policy.html'>Privacy Policy</a>
+            <a href='/search/label/HEALTH'>Health Tips</a>
+            <a href='/search/label/BEAUTY'>Beauty Guides</a>
+            <a href='/search/label/WEIGHT%20LOSS'>Weight Loss</a>
+            <a href='/search/label/LIFESTYLE'>Lifestyle</a>
+            <!-- Copy the line above to add more pages -->
+          </div>
+        </li>
+      </ul>
+
+      <!-- Mobile View -->
+      <select class="menu-mobile" onchange="window.location.href=this.value">
+        <option value="" disabled="disabled" selected="selected">BROWSE PAGES ☰</option>
+        <option value="https://cabadokas.netlify.app/">Main Website</option>
+        <option value="/">Home</option>
+        <option value="/p/privacy-policy.html">Privacy Policy</option>
+        <option value="/search/label/HEALTH">Health</option>
+        <option value="/search/label/BEAUTY">Beauty</option>
+        <option value="/search/label/WEIGHT%20LOSS">Weight Loss</option>
+      </select>
+
     </nav>
 
     <!-- MAIN CONTENT FLEX CONTAINER -->
@@ -247,7 +286,7 @@
         </b:section>
       </aside>
 
-      <!-- RIGHT MAIN CONTENT (Blog Posts / Question Marks) -->
+      <!-- RIGHT MAIN CONTENT (Blog Posts) -->
       <main id='main-wrapper'>
         <b:section id='main'>
           <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
@@ -332,6 +371,7 @@
 
     <!-- SCRIPTS -->
     <script>
+      //<![CDATA[
       function openLightbox(src){
         document.getElementById('lightbox-img').src = src;
         document.getElementById('lightbox').style.display = 'flex';
@@ -352,6 +392,7 @@
         if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; } // Ctrl+Shift+J
         if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } // Ctrl+U
       }
+      //]]>
     </script>
 
   </div>
