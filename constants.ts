@@ -2,6 +2,9 @@ import { BlogPost, SocialLink, NavItem } from './types';
 
 export const APP_NAME = "Cabadokas";
 
+// REPLACE THIS WITH YOUR REAL ADSENSE PUBLISHER ID
+export const ADSENSE_CLIENT_ID = "ca-pub-3127419285072540"; 
+
 export const SOCIAL_LINKS: SocialLink[] = [
   { platform: 'X', url: 'https://x.com/Cabadokas', iconClass: 'fa-brands fa-x-twitter' },
   { platform: 'Facebook', url: 'https://www.facebook.com/Cabadokas', iconClass: 'fa-brands fa-facebook-f' },

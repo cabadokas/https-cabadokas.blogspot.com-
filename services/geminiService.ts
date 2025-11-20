@@ -15,7 +15,7 @@ export const generateWellnessTip = async (topic: string): Promise<string> => {
     const model = 'gemini-2.5-flash';
     
     const prompt = `
-      You are a friendly, expert wellness coach for women named "Caba". 
+      You are a friendly, expert wellness coach for women named "Cabadokas". 
       Provide a short, encouraging, and actionable tip (max 50 words) about: ${topic}.
       Focus on health, beauty, or self-care. 
       Do not provide medical advice, but rather general wellness guidance.
@@ -39,13 +39,23 @@ export const askWellnessAssistant = async (question: string): Promise<string> =>
   }
   try {
     const ai = new GoogleGenAI({ apiKey });
-    // Use thinkingConfig for more complex reasoning if needed, but flash is fast for chat.
-    // Using standard generateContent for Q&A.
+    // Enhanced prompt for SEO and Social Media searching
     const response = await ai.models.generateContent({
         model: 'gemini-2.5-flash',
         contents: `
-            You are "Caba", a helpful wellness assistant on the Cabadokas blog.
-            Answer the following user question about health, beauty, or fitness concisely (under 100 words).
+            You are "Cabadokas", a helpful AI assistant for a women's health and beauty blog.
+            
+            If the user asks for **Social Media Groups** (e.g. "Find Facebook groups for weight loss"):
+            - List 3-5 popular or trending types of groups they should search for.
+            - Suggest specific search terms/keywords they can use on Facebook, Reddit, or LinkedIn.
+            - Do not invent fake URLs, but describe the communities accurately.
+
+            If the user asks for **Hashtags**:
+            - Provide a list of 10-15 high-traffic, relevant hashtags for Instagram/TikTok.
+
+            If the user asks about Health/Beauty:
+            - Answer the question concisely (under 100 words).
+
             User Question: ${question}
         `
     });

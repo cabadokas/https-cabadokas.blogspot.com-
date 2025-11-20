@@ -1,12 +1,16 @@
 import React from 'react';
 import { SOCIAL_LINKS, AFFILIATE_PARTNERS } from '../constants';
 import { AiWidget } from './AiWidget';
+import { GoogleAd } from './GoogleAd';
 
 export const Sidebar: React.FC = () => {
   return (
     <>
       {/* AI Widget - Top Priority */}
       <AiWidget />
+
+      {/* AdSense Ad Unit */}
+      <GoogleAd className="min-h-[250px]" />
 
       {/* Social Icons Widget */}
       <div className="bg-brand-widget p-6 rounded-lg shadow-sm">

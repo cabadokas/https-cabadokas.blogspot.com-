@@ -89,15 +89,16 @@ const App: React.FC = () => {
             activeCategory={activePost ? '' : currentCategory} 
           />
 
-          <div className="flex flex-col lg:flex-row w-full p-5 gap-8">
+          {/* Layout Container */}
+          <div className="flex flex-col md:flex-row w-full p-5 gap-8">
             
-            {/* Sidebar Area - NOW ON LEFT */}
-            <aside className="w-full lg:w-[30%] flex flex-col gap-8 min-w-[280px] order-2 lg:order-1">
+            {/* Sidebar Area - ON LEFT for Medium Screens and UP */}
+            <aside className="w-full md:w-[30%] flex flex-col gap-8 min-w-[280px] order-2 md:order-1">
               <Sidebar />
             </aside>
 
-            {/* Main Content Area - NOW ON RIGHT */}
-            <main className="w-full lg:w-[70%] flex flex-col gap-8 order-1 lg:order-2">
+            {/* Main Content Area - ON RIGHT for Medium Screens and UP */}
+            <main className="w-full md:w-[70%] flex flex-col gap-8 order-1 md:order-2">
               {loading ? (
                 <div className="py-20 text-center text-brand-primary">
                   <i className="fas fa-circle-notch fa-spin text-4xl mb-4"></i>

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { BlogPost } from '../types';
 import { APP_NAME } from '../constants';
+import { GoogleAd } from './GoogleAd';
 
 interface PostDetailProps {
   post: BlogPost;
@@ -64,6 +65,22 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post, onBack }) => {
     });
   };
 
+  const SmartCopyButton = () => (
+    <div className="bg-brand-bg p-4 rounded-lg border border-brand-primary/20 my-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
+      <div className="text-center sm:text-left">
+         <h4 className="font-bold text-brand-primary text-sm uppercase"><i className="fas fa-share-nodes mr-2"></i> Share to 17+ Sites</h4>
+         <p className="text-xs text-gray-600">Copy caption & link with one click!</p>
+      </div>
+      <button 
+        onClick={handleSmartCopy}
+        className="bg-brand-primary text-white text-sm font-bold py-2 px-6 rounded-full shadow hover:bg-brand-link hover:scale-105 transition-all flex items-center gap-2 whitespace-nowrap"
+      >
+        {copySuccess ? <i className="fas fa-check"></i> : <i className="fas fa-copy"></i>}
+        {copySuccess ? "COPIED!" : "COPY CAPTION"}
+      </button>
+    </div>
+  );
+
   return (
     <article className="bg-white animate-fade-in">
       <Helmet>
@@ -85,6 +102,9 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post, onBack }) => {
       >
         <i className="fas fa-arrow-left"></i> Back to Posts
       </button>
+
+      {/* Smart Copy Button at TOP */}
+      <SmartCopyButton />
 
       <header className="mb-6">
         <div className="flex gap-2 mb-3">
@@ -112,6 +132,9 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post, onBack }) => {
         className="prose prose-pink max-w-none text-gray-700"
         dangerouslySetInnerHTML={{ __html: post.content }}
       />
+
+      {/* Google AdSense Unit */}
+      <GoogleAd className="my-8" />
       
       <div className="mt-10 pt-6 border-t border-gray-100">
          <h4 className="text-sm font-bold text-gray-400 mb-3 uppercase">Tags</h4>
@@ -124,15 +147,15 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post, onBack }) => {
          </div>
       </div>
 
-      {/* SHARE BUTTONS SECTION */}
+      {/* SHARE BUTTONS SECTION (Detailed) */}
       <div className="mt-8 bg-brand-bg p-6 rounded-lg border border-brand-primary/10">
         <h4 className="text-base font-bold text-brand-secondary mb-4 uppercase text-center">
             Fast Share to 17 Sites
         </h4>
         
-        {/* SMART COPY BUTTON */}
+        {/* Smart Copy Button at BOTTOM */}
         <div className="flex justify-center mb-6">
-            <button 
+             <button 
                 onClick={handleSmartCopy}
                 className="bg-brand-primary text-white text-sm font-bold py-3 px-8 rounded-full shadow-lg hover:bg-brand-link hover:scale-105 transition-all flex items-center gap-2"
             >
