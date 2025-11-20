@@ -11,6 +11,14 @@
     <meta property="og:type" content="website" />
     <meta name="robots" content="index, follow" />
     
+    <!-- SEO MAGNET: Geo-Targeting Tags -->
+    <meta name="geo.region" content="US, GB, CA, AU, EU" />
+    <meta name="geo.placename" content="Global" />
+    <meta name="target_country" content="US" />
+    <meta name="target_country" content="GB" />
+    <meta name="target_country" content="CA" />
+    <meta name="target_country" content="AU" />
+    
     <!-- Google Analytics (GA4) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-LKDDR6GQYH"></script>
     <script>
@@ -55,12 +63,37 @@
             },
             fontFamily: {
               sans: ['Helvetica Neue', 'Arial', 'sans-serif'],
+            },
+            keyframes: {
+              'fade-in': {
+                '0%': { opacity: '0', transform: 'translateY(10px)' },
+                '100%': { opacity: '1', transform: 'translateY(0)' },
+              }
+            },
+            animation: {
+              'fade-in': 'fade-in 0.5s ease-out forwards',
             }
           }
         }
       }
     </script>
     <!-- ============================================================ -->
+
+    <style>
+      /* CSS to make videos responsive inside blog posts */
+      .video-container iframe,
+      .video-container video,
+      .video-container embed {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+        border-radius: 8px;
+        margin-bottom: 20px;
+      }
+      /* Smooth scroll */
+      html { scroll-behavior: smooth; }
+    </style>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <script type="importmap">

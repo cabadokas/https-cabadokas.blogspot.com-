@@ -1,3 +1,4 @@
+
 import React, { useEffect } from 'react';
 import { ADSENSE_CLIENT_ID } from '../constants';
 
@@ -26,9 +27,10 @@ export const GoogleAd: React.FC<GoogleAdProps> = ({ slot, format = 'auto', class
   }
 
   return (
-    <div className={`w-full my-4 ${className}`}>
+    <div className={`w-full my-4 flex flex-col items-center justify-center ${className}`}>
+      <span className="text-[10px] text-gray-300 uppercase tracking-widest mb-1">Advertisement</span>
       <ins className="adsbygoogle"
-           style={{ display: 'block' }}
+           style={{ display: 'block', minHeight: '100px', width: '100%' }}
            data-ad-client={ADSENSE_CLIENT_ID}
            data-ad-slot={slot}
            data-ad-format={format}

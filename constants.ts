@@ -1,3 +1,4 @@
+
 import { BlogPost, SocialLink, NavItem } from './types';
 
 export const APP_NAME = "Cabadokas";
@@ -6,6 +7,8 @@ export const APP_NAME = "Cabadokas";
 export const ADSENSE_CLIENT_ID = "ca-pub-3127419285072540"; 
 
 export const SOCIAL_LINKS: SocialLink[] = [
+  { platform: 'Quora', url: 'https://www.quora.com/profile/Cabadokas', iconClass: 'fa-brands fa-quora', color: 'text-[#B92B27]' },
+  { platform: 'Reddit', url: 'https://www.reddit.com/r/Cabadokas/', iconClass: 'fa-brands fa-reddit', color: 'text-[#FF4500]' },
   { platform: 'X', url: 'https://x.com/Cabadokas', iconClass: 'fa-brands fa-x-twitter' },
   { platform: 'Facebook', url: 'https://www.facebook.com/Cabadokas', iconClass: 'fa-brands fa-facebook-f' },
   { platform: 'Instagram', url: 'https://www.instagram.com/Cabadokas/#', iconClass: 'fa-brands fa-instagram' },
@@ -30,6 +33,9 @@ export const AFFILIATE_PARTNERS = [
   { name: 'Etsy', url: 'https://www.etsy.com/', iconClass: 'fa-brands fa-etsy' },
   { name: 'Awin', url: 'https://www.awin.com/', iconClass: 'fa-solid fa-network-wired' },
   { name: 'ShareASale', url: 'https://www.shareasale.com/', iconClass: 'fa-solid fa-share-nodes' },
+  { name: 'Sephora', url: 'https://www.sephora.com', iconClass: 'fa-solid fa-bag-shopping' },
+  { name: 'Ulta Beauty', url: 'https://www.ulta.com', iconClass: 'fa-solid fa-pump-soap' },
+  { name: 'ClickBank', url: 'https://www.clickbank.com', iconClass: 'fa-solid fa-money-bill-trend-up' },
 ];
 
 export const NAV_ITEMS: NavItem[] = [

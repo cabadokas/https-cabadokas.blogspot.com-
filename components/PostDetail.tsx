@@ -1,8 +1,10 @@
+
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet-async';
 import { BlogPost } from '../types';
 import { APP_NAME } from '../constants';
 import { GoogleAd } from './GoogleAd';
+import { ImageModal } from './ImageModal';
 
 interface PostDetailProps {
   post: BlogPost;
@@ -11,6 +13,7 @@ interface PostDetailProps {
 
 export const PostDetail: React.FC<PostDetailProps> = ({ post, onBack }) => {
   const [copySuccess, setCopySuccess] = useState(false);
+  const [zoomImage, setZoomImage] = useState<string | null>(null);
 
   // Clean summary for meta description
   const metaDescription = post.summary.replace(/"/g, '&quot;').substring(0, 160);
@@ -46,11 +49,13 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post, onBack }) => {
   const shareLinks = [
     { name: 'Facebook', url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, icon: 'fa-brands fa-facebook-f', color: 'bg-[#1877F2]' },
     { name: 'X (Twitter)', url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`, icon: 'fa-brands fa-x-twitter', color: 'bg-black' },
+    { name: 'Reddit', url: `https://www.reddit.com/submit?url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(shareText)}`, icon: 'fa-brands fa-reddit', color: 'bg-[#FF4500]' },
     { name: 'Pinterest', url: `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(shareUrl)}&media=${encodeURIComponent(post.imageUrl)}&description=${encodeURIComponent(shareText)}`, icon: 'fa-brands fa-pinterest-p', color: 'bg-[#BD081C]' },
     { name: 'WhatsApp', url: `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`, icon: 'fa-brands fa-whatsapp', color: 'bg-[#25D366]' },
     { name: 'LinkedIn', url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, icon: 'fa-brands fa-linkedin-in', color: 'bg-[#0A66C2]' },
     { name: 'Threads', url: `https://www.threads.net/intent/post?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`, icon: 'fa-brands fa-threads', color: 'bg-black' },
     { name: 'Telegram', url: `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`, icon: 'fa-brands fa-telegram', color: 'bg-[#0088cc]' },
+    { name: 'Quora', url: `https://www.quora.com/share?url=${encodeURIComponent(shareUrl)}&title=${encodeURIComponent(shareText)}`, icon: 'fa-brands fa-quora', color: 'bg-[#B92B27]' },
     { name: 'Email', url: `mailto:?subject=${encodeURIComponent(shareText)}&body=${encodeURIComponent('Check this out: ' + shareUrl)}`, icon: 'fa-solid fa-envelope', color: 'bg-gray-600' },
   ];
 
@@ -68,7 +73,7 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post, onBack }) => {
   const SmartCopyButton = () => (
     <div className="bg-brand-bg p-4 rounded-lg border border-brand-primary/20 my-6 flex flex-col sm:flex-row items-center justify-between gap-4 shadow-sm">
       <div className="text-center sm:text-left">
-         <h4 className="font-bold text-brand-primary text-sm uppercase"><i className="fas fa-share-nodes mr-2"></i> Share to 17+ Sites</h4>
+         <h4 className="font-bold text-brand-primary text-sm uppercase"><i className="fas fa-share-nodes mr-2"></i> Share to 18+ Sites</h4>
          <p className="text-xs text-gray-600">Copy caption & link with one click!</p>
       </div>
       <button 
@@ -95,6 +100,14 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post, onBack }) => {
           {JSON.stringify(articleSchema)}
         </script>
       </Helmet>
+
+      {zoomImage && (
+        <ImageModal 
+            src={zoomImage} 
+            alt="Zoomed View" 
+            onClose={() => setZoomImage(null)} 
+        />
+      )}
 
       <button 
         onClick={onBack}
@@ -125,12 +138,19 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post, onBack }) => {
       <img 
         src={post.imageUrl} 
         alt={post.title} 
-        className="w-full max-h-[500px] object-cover rounded-lg mb-8 shadow-sm"
+        className="w-full max-h-[500px] object-cover rounded-lg mb-8 shadow-sm cursor-zoom-in"
+        onClick={() => setZoomImage(post.imageUrl)}
       />
 
       <div 
-        className="prose prose-pink max-w-none text-gray-700"
+        className="prose prose-pink max-w-none text-gray-700 video-container"
         dangerouslySetInnerHTML={{ __html: post.content }}
+        onClick={(e) => {
+            const target = e.target as HTMLElement;
+            if (target.tagName === 'IMG') {
+                setZoomImage((target as HTMLImageElement).src);
+            }
+        }}
       />
 
       {/* Google AdSense Unit */}
@@ -150,7 +170,7 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post, onBack }) => {
       {/* SHARE BUTTONS SECTION (Detailed) */}
       <div className="mt-8 bg-brand-bg p-6 rounded-lg border border-brand-primary/10">
         <h4 className="text-base font-bold text-brand-secondary mb-4 uppercase text-center">
-            Fast Share to 17 Sites
+            Fast Share to 18 Sites
         </h4>
         
         {/* Smart Copy Button at BOTTOM */}

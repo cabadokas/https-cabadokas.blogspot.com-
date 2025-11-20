@@ -1,18 +1,20 @@
+
 import React from 'react';
 import { SOCIAL_LINKS, AFFILIATE_PARTNERS } from '../constants';
 import { AiWidget } from './AiWidget';
 import { GoogleAd } from './GoogleAd';
+import { AudioPlayer } from './AudioPlayer';
 
 export const Sidebar: React.FC = () => {
   return (
     <>
+      {/* Audio Player - Zen Music */}
+      <AudioPlayer />
+
       {/* AI Widget - Top Priority */}
       <AiWidget />
 
-      {/* AdSense Ad Unit */}
-      <GoogleAd className="min-h-[250px]" />
-
-      {/* Social Icons Widget */}
+      {/* Social Icons Widget - NOW AT TOP for better visibility */}
       <div className="bg-brand-widget p-6 rounded-lg shadow-sm">
         <h2 className="text-lg font-bold text-brand-primary border-b-2 border-brand-primary pb-2 mb-4 uppercase">
           Connect With Us
@@ -24,7 +26,7 @@ export const Sidebar: React.FC = () => {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow text-brand-link hover:text-brand-primary hover:scale-110 hover:shadow-md transition-all duration-300"
+              className={`w-10 h-10 flex items-center justify-center bg-white rounded-full shadow text-brand-link hover:text-brand-primary hover:scale-110 hover:shadow-md transition-all duration-300 ${link.color || ''}`}
               aria-label={link.platform}
               title={link.platform}
             >
@@ -74,6 +76,9 @@ export const Sidebar: React.FC = () => {
           </button>
         </div>
       </div>
+
+      {/* AdSense Ad Unit - MOVED TO BOTTOM so emptiness doesn't push content down */}
+      <GoogleAd className="w-full" />
 
       {/* Contact Form Widget */}
       <div className="bg-brand-widget p-6 rounded-lg shadow-sm">
