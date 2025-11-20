@@ -4,21 +4,40 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Cabadokas | Health, Beauty & Wellness</title>
-    <meta name="description" content="Women, Health, Beauty, Weight Loss, Nutrition, Fitness, Affiliate Marketing, Amazon Affiliate, Digistore24, Etsy, Awin, ShareASale" />
-    <meta name="keywords" content="Women, Health, Beauty, Weight Loss, Nutrition, Fitness, Affiliate Marketing, Cabadokas" />
+    <meta name="description" content="Discover the best in women's health, beauty trends, weight loss tips, nutrition advice, and fitness guides. Your ultimate resource for wellness and lifestyle." />
+    <meta name="keywords" content="Women, Health, Beauty, Weight Loss, Nutrition, Fitness, Affiliate Marketing, Amazon Affiliate, Digistore24, Etsy, Awin, ShareASale, Cabadokas, Skincare, Wellness Coach, Diet Plans" />
+    <meta name="author" content="Cabadokas" />
+    <meta property="og:site_name" content="Cabadokas" />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="index, follow" />
+    
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- ============================================================ -->
+    <!--                THEME CONTROL PANEL (EDIT HERE)               -->
+    <!-- ============================================================ -->
     <script>
+      // YOU CAN CHANGE THE COLORS BELOW TO RE-THEME THE SITE INSTANTLY
+      const THEME_COLORS = {
+         primary: '#ff69b4',   // Main Color (Hot Pink)
+         secondary: '#333333', // Text Color (Dark Gray)
+         link: '#e91e63',      // Button/Link Hover (Vibrant Pink)
+         background: '#f0f2f5',// Page Background
+         container: '#ffffff', // Content Box Background
+         widget: '#f9f9f9',    // Sidebar Widget Background
+      };
+
       tailwind.config = {
         theme: {
           extend: {
             colors: {
               brand: {
-                primary: '#ff69b4', // Hot Pink
-                secondary: '#333333', // Dark Gray
-                link: '#e91e63', // Vibrant Pink
-                bg: '#f0f2f5',
-                container: '#ffffff',
-                widget: '#f9f9f9',
+                primary: THEME_COLORS.primary,
+                secondary: THEME_COLORS.secondary,
+                link: THEME_COLORS.link,
+                bg: THEME_COLORS.background,
+                container: THEME_COLORS.container,
+                widget: THEME_COLORS.widget,
               }
             },
             fontFamily: {
@@ -28,6 +47,8 @@
         }
       }
     </script>
+    <!-- ============================================================ -->
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
   <script type="importmap">
 {
@@ -35,7 +56,8 @@
     "@google/genai": "https://aistudiocdn.com/@google/genai@^1.30.0",
     "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "react-helmet-async": "https://esm.sh/react-helmet-async@2.0.4?external=react,react-dom"
   }
 }
 </script>

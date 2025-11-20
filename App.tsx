@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import { Header } from './components/Header';
 import { Navbar } from './components/Navbar';
 import { Sidebar } from './components/Sidebar';
@@ -7,7 +8,7 @@ import { PostDetail } from './components/PostDetail';
 import { PrivacyPolicy } from './components/PrivacyPolicy';
 import { Footer } from './components/Footer';
 import { BlogPost } from './types';
-import { MOCK_POSTS } from './constants';
+import { MOCK_POSTS, APP_NAME, SOCIAL_LINKS } from './constants';
 import { fetchBloggerPosts } from './services/bloggerService';
 
 const App: React.FC = () => {
@@ -20,8 +21,6 @@ const App: React.FC = () => {
     const loadPosts = async () => {
       setLoading(true);
       const fetchedPosts = await fetchBloggerPosts();
-      // Use mock posts if fetch returns empty (fallback) or combine them if desired
-      // For now, we prioritize fetched posts, if empty use mock so the site isn't blank
       if (fetchedPosts.length > 0) {
         setPosts(fetchedPosts);
       } else {
@@ -43,62 +42,92 @@ const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Filter posts based on category if not on HOME
   const displayPosts = currentCategory === 'HOME' || currentCategory === 'PRIVACY'
     ? posts 
     : posts.filter(p => {
         if (p.category === currentCategory) return true;
-        // Also check tags if category match fails
         return p.tags.some(tag => tag.toUpperCase() === currentCategory);
     });
 
+  const organizationSchema = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": APP_NAME,
+    "url": "https://cabadokas.netlify.app/",
+    "logo": "https://blogger.googleusercontent.com/img/a/AVvXsEhpggXG6-9uyu4dKimws4dQnA99iezltoaA0C6t9Y6p2mfgyFrnLvZIawkL7qX6rX8J-qYrHxkX75A-m8_9_fr-iDxo4pkc-k4Oi9P3V-WobJiZwy3gq2_Wq_tzOhN5vjZ-7-__bylhEe7Ca7jdmlasZ3gzJDyaLWxTiwVrI5GunadQChEPV-UwM9fSxRfU=s567",
+    "sameAs": SOCIAL_LINKS.map(link => link.url),
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "email": "cabadokas@gmail.com",
+      "contactType": "customer support"
+    }
+  };
+
   return (
-    <div className="min-h-screen flex flex-col items-center py-5 px-2 sm:px-5">
-      <div className="w-full max-w-[1200px] bg-brand-container shadow-lg rounded-lg overflow-hidden flex flex-col">
+    <HelmetProvider>
+      <div className="min-h-screen flex flex-col items-center py-5 px-2 sm:px-5">
         
-        <Header onLogoClick={() => handleNavClick('HOME')} />
-        
-        <Navbar 
-          onNavClick={handleNavClick} 
-          activeCategory={activePost ? '' : currentCategory} 
-        />
+        {!activePost && (
+          <Helmet>
+            <title>Cabadokas | Health, Beauty & Wellness</title>
+            <meta name="description" content="Your ultimate destination for women's health, beauty tips, weight loss guides, and wellness nutrition. Shop top products from Amazon, Etsy, and more." />
+            <meta property="og:title" content="Cabadokas | Health, Beauty & Wellness" />
+            <meta property="og:description" content="Your ultimate destination for women's health, beauty tips, weight loss guides, and wellness nutrition." />
+            <meta property="og:image" content="https://blogger.googleusercontent.com/img/a/AVvXsEhpggXG6-9uyu4dKimws4dQnA99iezltoaA0C6t9Y6p2mfgyFrnLvZIawkL7qX6rX8J-qYrHxkX75A-m8_9_fr-iDxo4pkc-k4Oi9P3V-WobJiZwy3gq2_Wq_tzOhN5vjZ-7-__bylhEe7Ca7jdmlasZ3gzJDyaLWxTiwVrI5GunadQChEPV-UwM9fSxRfU=s567" />
+            <script type="application/ld+json">
+              {JSON.stringify(organizationSchema)}
+            </script>
+          </Helmet>
+        )}
 
-        <div className="flex flex-col lg:flex-row w-full p-5 gap-8">
-          {/* Main Content Area */}
-          <main className="w-full lg:w-[70%] flex flex-col gap-8">
-            {loading ? (
-              <div className="py-20 text-center text-brand-primary">
-                <i className="fas fa-circle-notch fa-spin text-4xl mb-4"></i>
-                <p>Syncing with Cabadokas Blog...</p>
-              </div>
-            ) : currentCategory === 'PRIVACY' ? (
-              <PrivacyPolicy />
-            ) : activePost ? (
-              <PostDetail post={activePost} onBack={() => setActivePost(null)} />
-            ) : (
-              <PostList 
-                posts={displayPosts} 
-                category={currentCategory} 
-                onPostClick={handlePostClick} 
-              />
-            )}
-          </main>
+        <div className="w-full max-w-[1200px] bg-brand-container shadow-lg rounded-lg overflow-hidden flex flex-col">
+          
+          <Header onLogoClick={() => handleNavClick('HOME')} />
+          
+          <Navbar 
+            onNavClick={handleNavClick} 
+            activeCategory={activePost ? '' : currentCategory} 
+          />
 
-          {/* Sidebar Area */}
-          <aside className="w-full lg:w-[30%] flex flex-col gap-8 min-w-[280px]">
-            <Sidebar />
-          </aside>
+          <div className="flex flex-col lg:flex-row w-full p-5 gap-8">
+            
+            {/* Sidebar Area - NOW ON LEFT */}
+            <aside className="w-full lg:w-[30%] flex flex-col gap-8 min-w-[280px] order-2 lg:order-1">
+              <Sidebar />
+            </aside>
+
+            {/* Main Content Area - NOW ON RIGHT */}
+            <main className="w-full lg:w-[70%] flex flex-col gap-8 order-1 lg:order-2">
+              {loading ? (
+                <div className="py-20 text-center text-brand-primary">
+                  <i className="fas fa-circle-notch fa-spin text-4xl mb-4"></i>
+                  <p>Syncing with Cabadokas Blog...</p>
+                </div>
+              ) : currentCategory === 'PRIVACY' ? (
+                <PrivacyPolicy />
+              ) : activePost ? (
+                <PostDetail post={activePost} onBack={() => setActivePost(null)} />
+              ) : (
+                <PostList 
+                  posts={displayPosts} 
+                  category={currentCategory} 
+                  onPostClick={handlePostClick} 
+                />
+              )}
+            </main>
+
+          </div>
+
+          <Navbar 
+            onNavClick={handleNavClick} 
+            activeCategory={activePost ? '' : currentCategory}
+            isFooter={true} 
+          />
+          
+          <Footer />
         </div>
-
-        <Navbar 
-          onNavClick={handleNavClick} 
-          activeCategory={activePost ? '' : currentCategory}
-          isFooter={true} 
-        />
-        
-        <Footer />
       </div>
-    </div>
+    </HelmetProvider>
   );
 };
 

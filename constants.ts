@@ -38,17 +38,43 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'WEIGHT LOSS', value: 'WEIGHT LOSS' },
 ];
 
-// Initial fallback data in case fetch fails
+// Enhanced fallback data in case fetch fails
 export const MOCK_POSTS: BlogPost[] = [
   {
     id: '1',
     title: 'Welcome to Cabadokas',
-    summary: 'Your journey to health, beauty, and wellness starts here.',
-    content: '<p>Loading latest posts from Blogger...</p>',
+    summary: 'Your journey to health, beauty, and wellness starts here. Explore our tips for a healthier, happier you.',
+    content: `
+      <p>Welcome to Cabadokas! We are dedicated to providing you with the best tips on women's health, beauty, and weight loss.</p>
+      <p>We partner with Amazon, Digistore24, and more to bring you the best products.</p>
+      <p>Check out our latest posts for nutrition guides and skincare routines.</p>
+    `,
     imageUrl: 'https://blogger.googleusercontent.com/img/a/AVvXsEhpggXG6-9uyu4dKimws4dQnA99iezltoaA0C6t9Y6p2mfgyFrnLvZIawkL7qX6rX8J-qYrHxkX75A-m8_9_fr-iDxo4pkc-k4Oi9P3V-WobJiZwy3gq2_Wq_tzOhN5vjZ-7-__bylhEe7Ca7jdmlasZ3gzJDyaLWxTiwVrI5GunadQChEPV-UwM9fSxRfU=s567',
-    date: new Date().toISOString(),
+    date: new Date().toLocaleDateString(),
     author: 'Cabadokas',
     category: 'HEALTH',
-    tags: ['Welcome'],
+    tags: ['Welcome', 'Health'],
+  },
+  {
+    id: '2',
+    title: 'Top 10 Beauty Essentials for 2025',
+    summary: 'Discover the must-have beauty products that are taking the world by storm this year. From skincare to makeup.',
+    content: '<p>Discover the must-have beauty products...</p>',
+    imageUrl: 'https://images.unsplash.com/photo-1596462502278-27bfdd403348?auto=format&fit=crop&q=80&w=800',
+    date: new Date(Date.now() - 86400000).toLocaleDateString(),
+    author: 'Cabadokas',
+    category: 'BEAUTY',
+    tags: ['Beauty', 'Skincare'],
+  },
+  {
+    id: '3',
+    title: 'Effective Weight Loss Strategies',
+    summary: 'Simple, science-backed tips to help you lose weight sustainably and keep it off.',
+    content: '<p>Simple, science-backed tips...</p>',
+    imageUrl: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&q=80&w=800',
+    date: new Date(Date.now() - 172800000).toLocaleDateString(),
+    author: 'Cabadokas',
+    category: 'WEIGHT LOSS',
+    tags: ['Weight Loss', 'Fitness'],
   }
 ];

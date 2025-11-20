@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Helmet } from 'react-helmet-async';
 import { BlogPost } from '../types';
+import { APP_NAME } from '../constants';
 
 interface PostDetailProps {
   post: BlogPost;
@@ -7,8 +9,76 @@ interface PostDetailProps {
 }
 
 export const PostDetail: React.FC<PostDetailProps> = ({ post, onBack }) => {
+  const [copySuccess, setCopySuccess] = useState(false);
+
+  // Clean summary for meta description
+  const metaDescription = post.summary.replace(/"/g, '&quot;').substring(0, 160);
+
+  // Structured Data (JSON-LD) for Blog Post
+  const articleSchema = {
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "headline": post.title,
+    "image": [post.imageUrl],
+    "datePublished": new Date(post.date).toISOString(),
+    "dateModified": new Date(post.date).toISOString(),
+    "author": [{
+      "@type": "Person",
+      "name": post.author,
+      "url": "https://cabadokas.netlify.app/" 
+    }],
+    "publisher": {
+      "@type": "Organization",
+      "name": APP_NAME,
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://blogger.googleusercontent.com/img/a/AVvXsEhpggXG6-9uyu4dKimws4dQnA99iezltoaA0C6t9Y6p2mfgyFrnLvZIawkL7qX6rX8J-qYrHxkX75A-m8_9_fr-iDxo4pkc-k4Oi9P3V-WobJiZwy3gq2_Wq_tzOhN5vjZ-7-__bylhEe7Ca7jdmlasZ3gzJDyaLWxTiwVrI5GunadQChEPV-UwM9fSxRfU=s567"
+      }
+    },
+    "description": metaDescription,
+    "articleBody": post.content.replace(/<[^>]+>/g, ' ').substring(0, 5000)
+  };
+
+  const shareUrl = post.link || window.location.href;
+  const shareText = post.title;
+
+  const shareLinks = [
+    { name: 'Facebook', url: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`, icon: 'fa-brands fa-facebook-f', color: 'bg-[#1877F2]' },
+    { name: 'X (Twitter)', url: `https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`, icon: 'fa-brands fa-x-twitter', color: 'bg-black' },
+    { name: 'Pinterest', url: `https://pinterest.com/pin/create/button/?url=${encodeURIComponent(shareUrl)}&media=${encodeURIComponent(post.imageUrl)}&description=${encodeURIComponent(shareText)}`, icon: 'fa-brands fa-pinterest-p', color: 'bg-[#BD081C]' },
+    { name: 'WhatsApp', url: `https://api.whatsapp.com/send?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`, icon: 'fa-brands fa-whatsapp', color: 'bg-[#25D366]' },
+    { name: 'LinkedIn', url: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, icon: 'fa-brands fa-linkedin-in', color: 'bg-[#0A66C2]' },
+    { name: 'Threads', url: `https://www.threads.net/intent/post?text=${encodeURIComponent(shareText + ' ' + shareUrl)}`, icon: 'fa-brands fa-threads', color: 'bg-black' },
+    { name: 'Telegram', url: `https://t.me/share/url?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`, icon: 'fa-brands fa-telegram', color: 'bg-[#0088cc]' },
+    { name: 'Email', url: `mailto:?subject=${encodeURIComponent(shareText)}&body=${encodeURIComponent('Check this out: ' + shareUrl)}`, icon: 'fa-solid fa-envelope', color: 'bg-gray-600' },
+  ];
+
+  // Function to smart copy content for social media
+  const handleSmartCopy = () => {
+    const hashtags = `#Cabadokas #${post.category.replace(' ', '')} #Wellness #Beauty`;
+    const caption = `✨ NEW POST: ${post.title} ✨\n\n${post.summary}\n\n👇 Read the full story here:\n${shareUrl}\n\n${hashtags}`;
+    
+    navigator.clipboard.writeText(caption).then(() => {
+        setCopySuccess(true);
+        setTimeout(() => setCopySuccess(false), 3000);
+    });
+  };
+
   return (
     <article className="bg-white animate-fade-in">
+      <Helmet>
+        <title>{post.title} | Cabadokas</title>
+        <meta name="description" content={metaDescription} />
+        <meta property="og:type" content="article" />
+        <meta property="og:title" content={post.title} />
+        <meta property="og:description" content={metaDescription} />
+        <meta property="og:image" content={post.imageUrl} />
+        <meta property="og:url" content={post.link || window.location.href} />
+        <script type="application/ld+json">
+          {JSON.stringify(articleSchema)}
+        </script>
+      </Helmet>
+
       <button 
         onClick={onBack}
         className="mb-4 text-sm text-gray-500 hover:text-brand-primary flex items-center gap-1"
@@ -38,7 +108,6 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post, onBack }) => {
         className="w-full max-h-[500px] object-cover rounded-lg mb-8 shadow-sm"
       />
 
-      {/* Content Injection - safe for mock data, use sanitization in prod */}
       <div 
         className="prose prose-pink max-w-none text-gray-700"
         dangerouslySetInnerHTML={{ __html: post.content }}
@@ -55,7 +124,45 @@ export const PostDetail: React.FC<PostDetailProps> = ({ post, onBack }) => {
          </div>
       </div>
 
-      <div className="mt-10 p-6 bg-brand-bg rounded-lg flex items-center gap-4 border border-brand-primary/10">
+      {/* SHARE BUTTONS SECTION */}
+      <div className="mt-8 bg-brand-bg p-6 rounded-lg border border-brand-primary/10">
+        <h4 className="text-base font-bold text-brand-secondary mb-4 uppercase text-center">
+            Fast Share to 17 Sites
+        </h4>
+        
+        {/* SMART COPY BUTTON */}
+        <div className="flex justify-center mb-6">
+            <button 
+                onClick={handleSmartCopy}
+                className="bg-brand-primary text-white text-sm font-bold py-3 px-8 rounded-full shadow-lg hover:bg-brand-link hover:scale-105 transition-all flex items-center gap-2"
+            >
+                {copySuccess ? <i className="fas fa-check"></i> : <i className="fas fa-copy"></i>}
+                {copySuccess ? "COPIED!" : "COPY SMART CAPTION"}
+            </button>
+        </div>
+        <p className="text-center text-xs text-gray-500 mb-4">
+            1. Click <strong>Copy Smart Caption</strong> above.<br/>
+            2. Click a social icon below.<br/>
+            3. Paste and Post!
+        </p>
+
+        <div className="flex flex-wrap justify-center gap-3">
+          {shareLinks.map((link) => (
+            <a
+              key={link.name}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`${link.color} text-white w-10 h-10 rounded-full flex items-center justify-center hover:opacity-80 hover:-translate-y-1 transition-all shadow-md`}
+              title={`Share on ${link.name}`}
+            >
+              <i className={link.icon}></i>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <div className="mt-10 p-6 bg-white rounded-lg flex items-center gap-4 border border-gray-100 shadow-sm">
         <div className="w-12 h-12 bg-brand-primary rounded-full flex items-center justify-center text-white text-xl font-bold">
             {post.author.charAt(0)}
         </div>

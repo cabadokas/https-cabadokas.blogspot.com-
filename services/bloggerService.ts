@@ -12,13 +12,16 @@ export const fetchBloggerPosts = async (): Promise<BlogPost[]> => {
       // Extract content
       const content = entry.content ? entry.content.$t : (entry.summary ? entry.summary.$t : '');
       
-      // Extract Image (look for media$thumbnail or parse content html)
+      // Extract Image
       // Default fallback from user assets if no image found
-      let imageUrl = 'https://blogger.googleusercontent.com/img/a/AVvXsEgpVRhIaLBKLQtSSt8SdJ8l0N_WL6UcRVQS5OfHSYQT4y6NDGwzCrI9ydkBVAViJwU9ObB1UflTuhLLbAoE2IjzWYw5_XeTFn7hnLsTWh8bDKQFhf8cCBwf3rlt8IYG1ofdFJekjAd8t7rGQR8NP38BeKQL99qTNjPZkuJMdn782x-i418w8F8iDTgtdhP=s567'; 
+      let imageUrl = 'https://blogger.googleusercontent.com/img/a/AVvXsEhpggXG6-9uyu4dKimws4dQnA99iezltoaA0C6t9Y6p2mfgyFrnLvZIawkL7qX6rX8J-qYrHxkX75A-m8_9_fr-iDxo4pkc-k4Oi9P3V-WobJiZwy3gq2_Wq_tzOhN5vjZ-7-__bylhEe7Ca7jdmlasZ3gzJDyaLWxTiwVrI5GunadQChEPV-UwM9fSxRfU=s567'; 
       
       if (entry.media$thumbnail) {
-        imageUrl = entry.media$thumbnail.url.replace('s72-c', 's800'); // Upgrade quality
+        // Blogger usually gives s72-c (small). Change to w800 for better quality
+        // We use a regex to replace any /sXX-c/ or /sXX/ part with /w800/
+        imageUrl = entry.media$thumbnail.url.replace(/\/s[0-9]+(-c)?\//, '/w800/'); 
       } else {
+        // Fallback: regex to find first image in HTML content
         const imgMatch = content.match(/src="([^"]+)"/);
         if (imgMatch) {
           imageUrl = imgMatch[1];
@@ -28,18 +31,19 @@ export const fetchBloggerPosts = async (): Promise<BlogPost[]> => {
       // Determine Category (Labels)
       let category: any = 'LIFESTYLE';
       const categories = entry.category ? entry.category.map((c: any) => c.term) : [];
+      const catStr = categories.join(' ').toUpperCase();
       
-      if (categories.some((c: string) => c.toUpperCase().includes('HEALTH'))) category = 'HEALTH';
-      else if (categories.some((c: string) => c.toUpperCase().includes('BEAUTY'))) category = 'BEAUTY';
-      else if (categories.some((c: string) => c.toUpperCase().includes('WEIGHT'))) category = 'WEIGHT LOSS';
+      if (catStr.includes('HEALTH')) category = 'HEALTH';
+      else if (catStr.includes('BEAUTY')) category = 'BEAUTY';
+      else if (catStr.includes('WEIGHT')) category = 'WEIGHT LOSS';
 
       return {
         id: entry.id.$t,
         title: entry.title.$t,
-        summary: content.replace(/<[^>]+>/g, '').substring(0, 150) + '...',
+        summary: content.replace(/<[^>]+>/g, ' ').substring(0, 150).trim() + '...',
         content: content,
         imageUrl: imageUrl,
-        date: new Date(entry.published.$t).toLocaleDateString(),
+        date: new Date(entry.published.$t).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' }),
         author: entry.author?.[0]?.name?.$t || 'Cabadokas',
         category: category,
         tags: categories,
@@ -48,25 +52,33 @@ export const fetchBloggerPosts = async (): Promise<BlogPost[]> => {
     });
   };
 
+  // Strategy 1: AllOrigins 'get' (returns JSON wrapper) - robust against CORS
+  // We use the 'get' endpoint which wraps the content in a JSON object { contents: "string" }
+  // This avoids browser CORS issues that happen with raw content.
   try {
-    // Try direct fetch first
-    const response = await fetch(BLOGGER_FEED_URL, { method: 'GET' });
-    if (!response.ok) throw new Error('Direct fetch failed');
+    const encodedUrl = encodeURIComponent(BLOGGER_FEED_URL);
+    const response = await fetch(`https://api.allorigins.win/get?url=${encodedUrl}`);
+    if (!response.ok) throw new Error('AllOrigins network response was not ok');
+    
+    const wrapper = await response.json();
+    if (!wrapper.contents) throw new Error('AllOrigins no content');
+    
+    const data = JSON.parse(wrapper.contents);
+    return parseBloggerData(data);
+  } catch (error) {
+    console.warn("Primary fetch strategy (AllOrigins) failed, attempting backup...", error);
+  }
+
+  // Strategy 2: CorsProxy.io (Raw transparent proxy)
+  try {
+    // corsproxy.io requires the full URL appended
+    const response = await fetch(`https://corsproxy.io/?${encodeURIComponent(BLOGGER_FEED_URL)}`);
+    if (!response.ok) throw new Error('CorsProxy network response was not ok');
+    
     const data = await response.json();
     return parseBloggerData(data);
-  } catch (directError) {
-    console.warn("Direct fetch failed, trying proxy...", directError);
-    try {
-      // Fallback to CORS proxy (AllOrigins)
-      // We use raw output to get the JSON directly
-      const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(BLOGGER_FEED_URL)}`;
-      const response = await fetch(proxyUrl);
-      if (!response.ok) throw new Error('Proxy fetch failed');
-      const data = await response.json();
-      return parseBloggerData(data);
-    } catch (proxyError) {
-      console.error("All fetch attempts failed:", proxyError);
-      return [];
-    }
+  } catch (error) {
+    console.error("All fetch strategies failed. Using mock data.", error);
+    return []; // Return empty to trigger mock data fallback in App.tsx
   }
 };
