@@ -1,21 +1,35 @@
 import React, { useState } from 'react';
 import { askWellnessAssistant } from '../services/geminiService';
 
+const SUGGESTIONS = [
+  'Best skincare routines',
+  'Healthy meal prep ideas',
+  'Stress relief techniques'
+];
+
 export const AiWidget: React.FC = () => {
   const [input, setInput] = useState('');
   const [response, setResponse] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
 
-  const handleAsk = async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!input.trim()) return;
-
+  const fetchAnswer = async (query: string) => {
     setLoading(true);
     setResponse(null);
     // We modify the prompt slightly to act as a tool if they are asking about groups
-    const answer = await askWellnessAssistant(input);
+    const answer = await askWellnessAssistant(query);
     setResponse(answer);
     setLoading(false);
+  };
+
+  const handleAsk = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!input.trim()) return;
+    await fetchAnswer(input);
+  };
+
+  const handleSuggestionClick = (suggestion: string) => {
+    setInput(suggestion);
+    fetchAnswer(suggestion);
   };
 
   return (
@@ -45,6 +59,20 @@ export const AiWidget: React.FC = () => {
           {loading ? <i className="fas fa-spinner fa-spin"></i> : 'ASK CABADOKAS'}
         </button>
       </form>
+
+      <div className="mt-3 flex flex-wrap gap-2">
+        {SUGGESTIONS.map((suggestion) => (
+          <button
+            key={suggestion}
+            type="button"
+            disabled={loading}
+            onClick={() => handleSuggestionClick(suggestion)}
+            className="text-xs bg-brand-bg text-brand-primary px-3 py-1 rounded-full border border-brand-primary/20 hover:bg-brand-primary hover:text-white transition-colors disabled:opacity-50"
+          >
+            {suggestion}
+          </button>
+        ))}
+      </div>
 
       {response && (
         <div className="mt-4 p-3 bg-brand-bg rounded border-l-4 border-brand-primary text-sm text-gray-700 animate-fade-in">
