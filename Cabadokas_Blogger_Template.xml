@@ -5,15 +5,46 @@
   <meta content='width=device-width, initial-scale=1' name='viewport'/>
   <title><data:blog.pageTitle/></title>
   
-  <!-- SEO MAGNET TAGS -->
-  <meta name="geo.region" content="US, GB, CA, AU, EU" />
+  <!-- SEO MAGNET & GEO-TARGETING -->
+  <meta name="geo.region" content="US, GB, CA, AU, EU, RU, CN, AE" />
+  <meta name="geo.position" content="37.0902; -95.7129" />
+  <meta name="ICBM" content="37.0902, -95.7129" />
   <meta name="target_country" content="US" />
-  <meta name="keywords" content="Women, Health, Beauty, Weight Loss, Nutrition, Fitness, Affiliate Marketing, Amazon, Sephora, Ulta, Cabadokas" />
+  
+  <meta name="keywords" content="Cabadokas, USDT, Bitcoin, Make Money, Work From Home, Health, Beauty, Weight Loss, Keto, Skincare, Amazon, Sephora, Viral, Trends" />
+
+  <!-- JSON-LD SCHEMA (THE GOOGLE RANK BOOSTER) -->
+  <script type='application/ld+json'>
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Cabadokas",
+    "url": "https://cabadokas.blogspot.com",
+    "logo": "https://blogger.googleusercontent.com/img/a/AVvXsEhpggXG6-9uyu4dKimws4dQnA99iezltoaA0C6t9Y6p2mfgyFrnLvZIawkL7qX6rX8J-qYrHxkX75A-m8_9_fr-iDxo4pkc-k4Oi9P3V-WobJiZwy3gq2_Wq_tzOhN5vjZ-7-__bylhEe7Ca7jdmlasZ3gzJDyaLWxTiwVrI5GunadQChEPV-UwM9fSxRfU=s567",
+    "sameAs": [
+      "https://www.quora.com/profile/Cabadokas",
+      "https://www.reddit.com/r/Cabadokas/",
+      "https://x.com/Cabadokas",
+      "https://www.facebook.com/Cabadokas",
+      "https://www.instagram.com/Cabadokas/#",
+      "https://www.tiktok.com/@Cabadokas",
+      "https://www.youtube.com/@Cabadokas",
+      "https://www.pinterest.com/Cabadokas/",
+      "https://t.me/Cabadokas",
+      "https://www.linkedin.com/Cabadokas",
+      "https://www.threads.com/Cabadokas",
+      "https://cabadokas.netlify.app/"
+    ]
+  }
+  </script>
 
   <!-- Font Awesome -->
   <link crossorigin='anonymous' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css' rel='stylesheet'/>
 
-  <!-- Google Analytics -->
+  <!-- AdSense -->
+  <script async='async' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3127419285072540' crossorigin='anonymous'></script>
+
+  <!-- Analytics -->
   <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-LKDDR6GQYH'></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -22,126 +53,105 @@
     gtag('config', 'G-LKDDR6GQYH');
   </script>
 
-  <!-- Google AdSense -->
-  <script async='async' src='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-3127419285072540' crossorigin='anonymous'></script>
-
   <b:skin><![CDATA[
-    /* --- THEME VARIABLES --- */
     :root {
-      --primary: #ff69b4; 
+      --primary: #ff69b4;
       --dark: #333333;
-      --light: #ffffff;
-      --bg: #f4f4f4;
+      --bg: #f8f9fa;
     }
 
-    /* --- RESET --- */
     * { box-sizing: border-box; }
-    body { font-family: 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--dark); margin: 0; padding: 0; }
+    body { font-family: 'Helvetica Neue', Arial, sans-serif; background: var(--bg); color: var(--dark); margin: 0; padding: 0; overflow-x: hidden; }
     a { text-decoration: none; color: #e91e63; transition: 0.3s; }
     a:hover { color: var(--primary); }
     img { max-width: 100%; height: auto; display: block; }
 
-    /* --- HIDE ATOM FEEDS (Security/Cleanliness) --- */
+    /* SECURITY & HIDDEN FEEDS */
     .blog-feeds, .feed-links, .post-feeds, .status-msg-wrap { display: none !important; }
 
-    /* --- HIDE BROKEN OVERLAYS (Pinterest Glitch Fix) --- */
-    .pinit-wrapper, .pin-it-button, span[class^="PIN_"], a[data-pin-log], .at-share-btn, div[class*="pinit"] {
-      display: none !important;
-      opacity: 0 !important;
-      visibility: hidden !important;
-      pointer-events: none !important;
-    }
+    /* CONTAINER */
+    #outer-wrapper { max-width: 1200px; margin: 0 auto; background: white; box-shadow: 0 0 30px rgba(0,0,0,0.05); }
 
-    /* --- CONTAINER --- */
-    #outer-wrapper { 
-      max-width: 1200px; 
-      margin: 0 auto; 
-      background: white; 
-      box-shadow: 0 0 20px rgba(0,0,0,0.1); 
-    }
+    /* HEADER */
+    #header-wrapper { text-align: center; padding: 10px; border-bottom: 1px solid #eee; background: white; }
+    #header-inner { display: flex; justify-content: center; align-items: center; }
+    #header-inner img { max-height: 170px; width: auto; max-width: 100%; }
 
-    /* --- HEADER --- */
-    #header-wrapper { text-align: center; padding: 20px; border-bottom: 1px solid #eee; }
-    
-    /* --- NAVBAR (DROPDOWN) --- */
-    .navbar { background: var(--primary); padding: 0; position: sticky; top: 0; z-index: 100; text-align: center; }
-    
-    /* Desktop Menu */
+    /* NAVBAR */
+    .navbar { background: var(--primary); position: sticky; top: 0; z-index: 100; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
     .menu-desktop { display: flex; justify-content: center; list-style: none; padding: 0; margin: 0; }
     .menu-desktop li { position: relative; }
     .menu-desktop a { display: block; color: white; padding: 15px 20px; font-weight: bold; text-transform: uppercase; font-size: 14px; }
-    .menu-desktop a:hover { background: rgba(0,0,0,0.1); }
+    .menu-desktop a:hover { background: rgba(255,255,255,0.2); }
     
-    /* Dropdown Logic */
-    .dropdown-content { display: none; position: absolute; background-color: #fff; min-width: 200px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; text-align: left; }
-    .dropdown-content a { color: #333; padding: 12px 16px; text-decoration: none; display: block; border-bottom: 1px solid #eee; }
-    .dropdown-content a:hover { background-color: #f1f1f1; color: var(--primary); }
+    .dropdown-content { display: none; position: absolute; background-color: #fff; min-width: 220px; box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); z-index: 1; text-align: left; border-top: 3px solid white; }
+    .dropdown-content a { color: #333; padding: 12px 16px; border-bottom: 1px solid #eee; }
+    .dropdown-content a:hover { background-color: #fff0f5; color: var(--primary); }
     .dropdown:hover .dropdown-content { display: block; }
     
-    /* Mobile Menu (Select Box) */
-    .menu-mobile { display: none; width: 100%; padding: 10px; background: var(--primary); color: white; border: none; font-weight: bold; text-transform: uppercase; }
+    .menu-mobile { display: none; width: 100%; padding: 15px; background: var(--primary); color: white; border: none; font-weight: bold; text-transform: uppercase; outline: none; }
 
-    /* --- MAIN FLEX LAYOUT (LEFT SIDEBAR / RIGHT CONTENT) --- */
-    #content-wrapper {
-      display: flex;
-      flex-direction: row; /* Sidebar Left, Content Right */
-      padding: 20px;
-      gap: 30px;
-    }
+    /* LAYOUT */
+    #content-wrapper { display: flex; flex-direction: row; padding: 30px; gap: 40px; }
+    #sidebar-wrapper { width: 320px; flex-shrink: 0; }
+    #main-wrapper { flex-grow: 1; width: 0; }
 
-    /* SIDEBAR (LEFT) */
-    #sidebar-wrapper {
-      width: 320px; /* Fixed width for sidebar */
-      flex-shrink: 0; /* Don't shrink */
-    }
-
-    /* MAIN POSTS (RIGHT) */
-    #main-wrapper {
-      flex-grow: 1; /* Take remaining space */
-      width: 0; /* Fix for flexbox overflow */
-    }
-
-    /* --- RESPONSIVE (Mobile) --- */
     @media (max-width: 900px) {
-      #content-wrapper { flex-direction: column; }
-      #sidebar-wrapper { width: 100%; order: 2; } /* Sidebar below on mobile */
+      #content-wrapper { flex-direction: column; padding: 15px; }
+      #sidebar-wrapper { width: 100%; order: 2; } 
       #main-wrapper { width: 100%; order: 1; }
       .menu-desktop { display: none; }
       .menu-mobile { display: block; }
     }
 
-    /* --- WIDGET STYLES --- */
-    .widget { background: #fff; border: 1px solid #eee; padding: 15px; margin-bottom: 20px; border-radius: 8px; }
-    .widget h2 { color: var(--primary); font-size: 16px; font-weight: bold; text-transform: uppercase; border-bottom: 2px solid var(--primary); padding-bottom: 8px; margin-bottom: 15px; }
+    /* WIDGETS */
+    .widget { background: #fff; border: 1px solid #f0f0f0; padding: 20px; margin-bottom: 25px; border-radius: 12px; box-shadow: 0 2px 10px rgba(0,0,0,0.02); }
+    .widget h2 { color: var(--primary); font-size: 15px; font-weight: 800; text-transform: uppercase; border-bottom: 2px solid var(--primary); padding-bottom: 10px; margin-bottom: 20px; }
 
-    /* --- SOCIAL GRID --- */
-    .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-    .social-icon { height: 40px; background: #f9f9f9; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #333; transition: 0.2s; }
-    .social-icon:hover { background: var(--primary); color: white; transform: scale(1.1); }
+    /* SOCIAL */
+    .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+    .social-icon { height: 45px; background: white; border: 1px solid #eee; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 20px; color: #555; transition: 0.3s; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+    .social-icon:hover { background: var(--primary); color: white; transform: translateY(-3px); }
 
-    /* --- AFFILIATE LIST --- */
-    .affiliate-link { display: block; padding: 10px; border-bottom: 1px solid #f0f0f0; font-weight: bold; color: #444; }
-    .affiliate-link i { color: var(--primary); width: 25px; }
-    .affiliate-link:hover { background: #fff0f5; padding-left: 15px; }
+    /* AFFILIATES */
+    .affiliate-link { display: flex; align-items: center; padding: 12px; border-bottom: 1px solid #f5f5f5; font-weight: bold; color: #444; font-size: 14px; }
+    .affiliate-link i { color: var(--primary); width: 30px; font-size: 16px; }
+    .affiliate-link:hover { background: #fff0f5; padding-left: 20px; color: var(--primary); }
 
-    /* --- POST STYLES --- */
-    .post-outer { margin-bottom: 40px; border-bottom: 1px solid #eee; padding-bottom: 40px; }
-    .post-title { font-size: 28px; font-weight: bold; margin: 10px 0; }
-    .post-title a { color: #333; }
-    .post-title a:hover { color: var(--primary); }
-    .post-img { width: 100%; height: 400px; object-fit: cover; border-radius: 8px; cursor: zoom-in; margin-bottom: 15px; }
-    .post-meta { font-size: 12px; color: #888; margin-bottom: 10px; }
-    .smart-copy-btn { display: inline-block; background: var(--primary); color: white; padding: 10px 20px; border-radius: 25px; font-weight: bold; margin-top: 15px; cursor: pointer; border: none; }
-    .smart-copy-btn:hover { background: #d81b60; }
-
-    /* --- MUSIC PLAYER --- */
-    .zen-player { background: var(--primary); color: white; padding: 15px; border-radius: 8px; text-align: center; }
-    .play-btn { background: white; color: var(--primary); border: none; width: 40px; height: 40px; border-radius: 50%; font-size: 16px; cursor: pointer; margin: 10px 0; }
+    /* POSTS */
+    .post-outer { margin-bottom: 50px; background: white; border-radius: 15px; overflow: hidden; }
+    .post-title { font-size: 26px; font-weight: 800; margin: 15px 0; line-height: 1.3; }
+    .post-title a { color: #222; }
     
-    /* --- LIGHTBOX --- */
-    #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.9); z-index: 9999; align-items: center; justify-content: center; }
-    #lightbox img { max-width: 95%; max-height: 95%; }
-    #lightbox .close { position: absolute; top: 20px; right: 30px; color: white; font-size: 40px; cursor: pointer; }
+    .post-img-container { position: relative; cursor: zoom-in; overflow: hidden; border-radius: 12px; }
+    .post-img { width: 100%; height: 400px; object-fit: cover; transition: transform 0.5s; }
+    .post-img-container:hover .post-img { transform: scale(1.03); }
+    
+    .category-badge { position: absolute; top: 20px; left: 20px; background: var(--primary); color: white; padding: 8px 15px; font-size: 11px; font-weight: 900; text-transform: uppercase; border-radius: 50px; z-index: 10; }
+
+    /* READ STORY BTN */
+    .read-story-btn { display: inline-block; background: white; color: var(--primary); border: 2px solid var(--primary); padding: 12px 30px; font-weight: 900; text-transform: uppercase; font-size: 13px; border-radius: 50px; margin-top: 20px; transition: 0.3s; }
+    .read-story-btn:hover { background: var(--primary); color: white; }
+
+    /* SHARE */
+    .share-btn-container { display: flex; gap: 10px; justify-content: center; margin-top: 20px; flex-wrap: wrap; }
+    .share-btn { width: 40px; height: 40px; border-radius: 50%; color: white; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: transform 0.2s; }
+    .share-btn:hover { transform: translateY(-5px); }
+
+    /* MUSIC */
+    .zen-player { background: linear-gradient(135deg, #ff69b4, #ff8da1); color: white; padding: 20px; border-radius: 15px; text-align: center; }
+    .play-btn { background: white; color: var(--primary); border: none; width: 50px; height: 50px; border-radius: 50%; font-size: 20px; cursor: pointer; margin: 15px 0; }
+    
+    /* MAGNET BOX */
+    .magnet-box { background: #2c3e50; color: white; padding: 20px; border-radius: 15px; border: 2px solid var(--primary); text-align: center; }
+    .magnet-input { width: 100%; padding: 10px; border-radius: 50px; border: none; margin-top: 10px; color: #333; text-align: center; font-weight: bold; outline: none; }
+    .magnet-result { margin-top: 15px; padding: 10px; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 13px; color: #ffeb3b; font-weight: bold; display: none; }
+    .magnet-btn { width: 100%; margin-top: 10px; padding: 10px; background: var(--primary); color: white; border: none; border-radius: 50px; font-weight: 900; cursor: pointer; }
+
+    /* LIGHTBOX */
+    #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 9999; align-items: center; justify-content: center; }
+    #lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
+    #lightbox .close { position: absolute; top: 30px; right: 40px; color: white; font-size: 50px; cursor: pointer; }
   ]]></b:skin>
 </head>
 
@@ -159,48 +169,40 @@
       </b:section>
     </header>
 
-    <!-- NAVBAR (DROPDOWN ENABLED) -->
+    <!-- NAVBAR -->
     <nav class='navbar'>
-      
-      <!-- Desktop View -->
       <ul class="menu-desktop">
         <li><a href='https://cabadokas.netlify.app/' target='_blank'>MAIN WEBSITE</a></li>
         <li><a href='/'>HOME</a></li>
+        <li><a href='/p/privacy-policy.html'>PRIVACY POLICY</a></li>
         <li class="dropdown">
           <a href="javascript:void(0)">BROWSE PAGES &#9662;</a>
           <div class="dropdown-content">
-            <!-- ADD NEW PAGES BELOW THIS LINE -->
-            <a href='/p/privacy-policy.html'>Privacy Policy</a>
             <a href='/search/label/HEALTH'>Health Tips</a>
             <a href='/search/label/BEAUTY'>Beauty Guides</a>
             <a href='/search/label/WEIGHT%20LOSS'>Weight Loss</a>
             <a href='/search/label/LIFESTYLE'>Lifestyle</a>
-            <!-- Copy the line above to add more pages -->
+            <!-- ADD NEW PAGES HERE -->
           </div>
         </li>
       </ul>
-
-      <!-- Mobile View -->
       <select class="menu-mobile" onchange="window.location.href=this.value">
         <option value="" disabled="disabled" selected="selected">BROWSE PAGES ☰</option>
-        <option value="https://cabadokas.netlify.app/">Main Website</option>
         <option value="/">Home</option>
         <option value="/p/privacy-policy.html">Privacy Policy</option>
         <option value="/search/label/HEALTH">Health</option>
         <option value="/search/label/BEAUTY">Beauty</option>
         <option value="/search/label/WEIGHT%20LOSS">Weight Loss</option>
       </select>
-
     </nav>
 
-    <!-- MAIN CONTENT FLEX CONTAINER -->
     <div id='content-wrapper'>
 
-      <!-- LEFT SIDEBAR (Blue Rectangle Content) -->
+      <!-- LEFT SIDEBAR -->
       <aside id='sidebar-wrapper'>
         <b:section id='sidebar'>
           
-          <!-- 1. MUSIC PLAYER -->
+          <!-- MUSIC -->
           <b:widget id='HTML1' locked='false' title='Zen Wellness Radio' type='HTML'>
             <b:widget-settings><b:widget-setting name='content'><![CDATA[
               <div class="zen-player">
@@ -224,52 +226,119 @@
             ]]></b:widget-setting></b:widget-settings>
           </b:widget>
 
-          <!-- 2. SOCIAL ICONS (18 sites) -->
+          <!-- ASK AI WIDGET (Smart Search) -->
+          <b:widget id='HTML5' locked='false' title='Ask Cabadokas AI' type='HTML'>
+             <b:widget-settings><b:widget-setting name='content'><![CDATA[
+               <div style="border:2px solid #e91e63; padding:15px; border-radius:10px; background:#fff0f5;">
+                 <div style="color:#e91e63; font-weight:bold;"><i class="fas fa-robot"></i> ASK CABADOKAS AI</div>
+                 <p style="font-size:11px; color:#555;">Ask me to find Groups, Hashtags or Tips!</p>
+                 <form action="/search" method="get">
+                   <input type="text" name="q" placeholder="e.g. Weight Loss Groups..." style="width:100%; padding:8px; border:1px solid #ddd; border-radius:5px; margin-bottom:5px;">
+                   <button type="submit" style="width:100%; background:#e91e63; color:white; border:none; padding:8px; border-radius:5px; cursor:pointer; font-weight:bold;">ASK NOW</button>
+                 </form>
+               </div>
+             ]]></b:widget-setting></b:widget-settings>
+          </b:widget>
+
+          <!-- DEAL MAGNET -->
+          <b:widget id='HTML7' locked='false' title='Smart Deal Finder' type='HTML'>
+             <b:widget-settings><b:widget-setting name='content'><![CDATA[
+               <div class="magnet-box">
+                 <div style="font-weight:bold; margin-bottom:5px; text-transform:uppercase;">
+                    <i class="fas fa-magnet"></i> FIND BUYER DEALS
+                 </div>
+                 <small>What do you want to buy?</small>
+                 <input type="text" id="magnetInput" class="magnet-input" placeholder="e.g. Lipstick, Diet Plan...">
+                 <div id="magnetResult" class="magnet-result"></div>
+                 <button onclick="findDeal()" class="magnet-btn">SEARCH DEALS</button>
+               </div>
+               <script>
+                 function findDeal() {
+                   var val = document.getElementById('magnetInput').value.toLowerCase();
+                   var res = document.getElementById('magnetResult');
+                   res.style.display = 'block';
+                   
+                   if(val.includes('makeup') || val.includes('face') || val.includes('lip')) {
+                      res.innerHTML = 'Found 50% OFF at Sephora! <a href="https://www.sephora.com" target="_blank" style="color:#fff; text-decoration:underline;">Click Here</a>';
+                   } else {
+                      res.innerHTML = 'Searching Amazon for "' + val + '"... <a href="https://amazon.com" target="_blank" style="color:#fff; text-decoration:underline;">See Results</a>';
+                   }
+                 }
+               </script>
+             ]]></b:widget-setting></b:widget-settings>
+          </b:widget>
+
+          <!-- INVITE FRIENDS -->
+          <b:widget id='HTML8' locked='false' title='Invite Friends' type='HTML'>
+             <b:widget-settings><b:widget-setting name='content'><![CDATA[
+               <div style="padding:15px; background:#fff0f5; border-radius:12px; border:1px dashed pink; text-align:center;">
+                 <div style="font-weight:bold; color:#d81b60; margin-bottom:5px;"><i class="fas fa-envelope-open-text"></i> INVITE A FRIEND</div>
+                 <button onclick="inviteFriend()" style="width:100%; background:#25D366; color:white; border:none; padding:8px; margin-top:10px; border-radius:50px; font-weight:bold; cursor:pointer;">
+                    <i class="fab fa-whatsapp"></i> SEND INVITE
+                 </button>
+               </div>
+               <script>
+                 function inviteFriend() {
+                    var msg = "Hey! Check out Cabadokas: https://cabadokas.blogspot.com";
+                    window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(msg), "_blank");
+                 }
+               </script>
+             ]]></b:widget-setting></b:widget-settings>
+          </b:widget>
+
+          <!-- SOCIAL ICONS -->
           <b:widget id='HTML2' locked='false' title='Connect With Us' type='HTML'>
             <b:widget-settings><b:widget-setting name='content'><![CDATA[
               <div class="social-grid">
-                <!-- Quora & Reddit First -->
-                <a href="https://www.quora.com/profile/Cabadokas" class="social-icon" style="color:#B92B27"><i class="fa-brands fa-quora"></i></a>
-                <a href="https://www.reddit.com/r/Cabadokas/" class="social-icon" style="color:#FF4500"><i class="fa-brands fa-reddit"></i></a>
-                <!-- Rest -->
-                <a href="https://x.com/Cabadokas" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="https://www.facebook.com/Cabadokas" class="social-icon" style="color:#1877F2"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/Cabadokas/#" class="social-icon" style="color:#E4405F"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@Cabadokas" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="https://www.youtube.com/@Cabadokas" class="social-icon" style="color:red"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://www.pinterest.com/Cabadokas/" class="social-icon" style="color:#BD081C"><i class="fa-brands fa-pinterest-p"></i></a>
-                <a href="https://discord.com/Cabadokas" class="social-icon"><i class="fa-brands fa-discord"></i></a>
-                <a href="https://www.snapchat.com/@cabadokas" class="social-icon"><i class="fa-brands fa-snapchat"></i></a>
-                <a href="https://www.whatsapp.com/Cabadokas" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="https://www.linkedin.com/Cabadokas" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://www.threads.com/Cabadokas" class="social-icon"><i class="fa-brands fa-threads"></i></a>
-                <a href="https://t.me/Cabadokas" class="social-icon"><i class="fa-brands fa-telegram"></i></a>
-                <a href="https://www.twitch.tv/Cabadokas" class="social-icon"><i class="fa-brands fa-twitch"></i></a>
-                <a href="https://www.behance.net/Cabadokas" class="social-icon"><i class="fa-brands fa-behance"></i></a>
-                <a href="https://dribbble.com/Cabadokas" class="social-icon"><i class="fa-brands fa-dribbble"></i></a>
-                <a href="https://beacons.ai/cabadokas" class="social-icon"><i class="fa-solid fa-link"></i></a>
+                <a href="https://www.quora.com/profile/Cabadokas" target="_blank" class="social-icon" style="color:#B92B27"><i class="fa-brands fa-quora"></i></a>
+                <a href="https://www.reddit.com/r/Cabadokas/" target="_blank" class="social-icon" style="color:#FF4500"><i class="fa-brands fa-reddit"></i></a>
+                <a href="https://x.com/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+                <a href="https://www.facebook.com/Cabadokas" target="_blank" class="social-icon" style="color:#1877F2"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/Cabadokas/#" target="_blank" class="social-icon" style="color:#E4405F"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
+                <a href="https://www.youtube.com/@Cabadokas" target="_blank" class="social-icon" style="color:red"><i class="fa-brands fa-youtube"></i></a>
+                <a href="https://www.pinterest.com/Cabadokas/" target="_blank" class="social-icon" style="color:#BD081C"><i class="fa-brands fa-pinterest-p"></i></a>
+                <a href="https://discord.com/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-discord"></i></a>
+                <a href="https://www.snapchat.com/@cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-snapchat"></i></a>
+                <a href="https://www.whatsapp.com/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="https://www.linkedin.com/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="https://www.threads.com/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-threads"></i></a>
+                <a href="https://t.me/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-telegram"></i></a>
+                <a href="https://www.twitch.tv/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-twitch"></i></a>
+                <a href="https://www.behance.net/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-behance"></i></a>
+                <a href="https://dribbble.com/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-dribbble"></i></a>
+                <a href="https://beacons.ai/cabadokas" target="_blank" class="social-icon"><i class="fa-solid fa-link"></i></a>
               </div>
             ]]></b:widget-setting></b:widget-settings>
           </b:widget>
 
-          <!-- 3. SHOPPING PARTNERS -->
+          <!-- AFFILIATES -->
           <b:widget id='HTML3' locked='false' title='Shopping Partners' type='HTML'>
             <b:widget-settings><b:widget-setting name='content'><![CDATA[
               <div class="affiliate-list">
-                <a href="https://amazon.com" class="affiliate-link"><i class="fa-brands fa-amazon"></i> Amazon</a>
-                <a href="https://www.digistore24.com/" class="affiliate-link"><i class="fa-solid fa-cart-shopping"></i> Digistore24</a>
-                <a href="https://www.etsy.com/" class="affiliate-link"><i class="fa-brands fa-etsy"></i> Etsy</a>
-                <a href="https://www.sephora.com" class="affiliate-link"><i class="fa-solid fa-bag-shopping"></i> Sephora</a>
-                <a href="https://www.ulta.com" class="affiliate-link"><i class="fa-solid fa-pump-soap"></i> Ulta Beauty</a>
-                <a href="https://www.clickbank.com" class="affiliate-link"><i class="fa-solid fa-money-bill-trend-up"></i> ClickBank</a>
-                <a href="https://www.awin.com/" class="affiliate-link"><i class="fa-solid fa-network-wired"></i> Awin</a>
-                <a href="https://www.shareasale.com/" class="affiliate-link"><i class="fa-solid fa-share-nodes"></i> ShareASale</a>
+                <a href="https://amazon.com" target="_blank" class="affiliate-link"><i class="fa-brands fa-amazon"></i> Amazon</a>
+                <a href="https://www.digistore24.com/" target="_blank" class="affiliate-link"><i class="fa-solid fa-cart-shopping"></i> Digistore24</a>
+                <a href="https://www.etsy.com/" target="_blank" class="affiliate-link"><i class="fa-brands fa-etsy"></i> Etsy</a>
+                <a href="https://www.sephora.com" target="_blank" class="affiliate-link"><i class="fa-solid fa-bag-shopping"></i> Sephora</a>
+                <a href="https://www.ulta.com" target="_blank" class="affiliate-link"><i class="fa-solid fa-pump-soap"></i> Ulta Beauty</a>
+                <a href="https://www.clickbank.com" target="_blank" class="affiliate-link"><i class="fa-solid fa-money-bill-trend-up"></i> ClickBank</a>
+                <a href="https://www.awin.com/" target="_blank" class="affiliate-link"><i class="fa-solid fa-network-wired"></i> Awin</a>
+                <a href="https://www.shareasale.com/" target="_blank" class="affiliate-link"><i class="fa-solid fa-share-nodes"></i> ShareASale</a>
               </div>
-              <small style="color:#999; display:block; margin-top:10px;">We earn commissions from qualifying purchases.</small>
             ]]></b:widget-setting></b:widget-settings>
           </b:widget>
           
-           <!-- 4. GOOGLE ADSENSE -->
+          <!-- CONTACT -->
+          <b:widget id='HTML6' locked='false' title='Contact Us' type='HTML'>
+             <b:widget-settings><b:widget-setting name='content'><![CDATA[
+               <div style="font-size:13px; color:#555;">
+                 <p><b>Email:</b> cabadokas@gmail.com</p>
+                 <p>info@cabadoka.ct.ws</p>
+               </div>
+             ]]></b:widget-setting></b:widget-settings>
+          </b:widget>
+          
+           <!-- ADSENSE -->
           <b:widget id='HTML4' locked='false' title='' type='HTML'>
              <b:widget-settings><b:widget-setting name='content'><![CDATA[
                <div style="text-align:center; font-size:10px; color:#ccc; margin-bottom:5px;">ADVERTISEMENT</div>
@@ -286,7 +355,7 @@
         </b:section>
       </aside>
 
-      <!-- RIGHT MAIN CONTENT (Blog Posts) -->
+      <!-- MAIN CONTENT -->
       <main id='main-wrapper'>
         <b:section id='main'>
           <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
@@ -296,20 +365,23 @@
              </b:widget-settings>
              
              <b:includable id='main'>
-               <!-- LOOP THROUGH POSTS -->
                <b:loop values='data:posts' var='post'>
                  <b:include data='post' name='post'/>
                </b:loop>
-               
-               <!-- PAGINATION -->
                <b:include name='nextprev'/>
              </b:includable>
 
              <b:includable id='post' var='post'>
                <div class='post-outer'>
-                 <b:if cond='data:post.firstImageUrl'>
-                   <img expr:src='data:post.firstImageUrl' class='post-img' onclick='openLightbox(this.src)'/>
-                 </b:if>
+                 <!-- IMAGE ZOOM -->
+                 <div class='post-img-container' onclick='openLightbox(this.querySelector("img").src)'>
+                   <b:if cond='data:post.labels'>
+                      <span class='category-badge'><data:post.labels.first.name/></span>
+                   </b:if>
+                   <b:if cond='data:post.firstImageUrl'>
+                     <img expr:src='data:post.firstImageUrl' class='post-img'/>
+                   </b:if>
+                 </div>
 
                  <h2 class='post-title'>
                    <a expr:href='data:post.url'><data:post.title/></a>
@@ -324,18 +396,23 @@
                    <b:if cond='data:blog.pageType == "item"'>
                      <data:post.body/>
                      
-                     <!-- SMART COPY BUTTON -->
-                     <div style="text-align:center; margin-top:30px;">
-                       <button class='smart-copy-btn' expr:onclick='&quot;smartCopy(\&quot;&quot; + data:post.title + &quot;\&quot;, \&quot;&quot; + data:post.url + &quot;\&quot;)&quot;'>
-                          <i class="fas fa-copy"></i> COPY CAPTION FOR SOCIALS
-                       </button>
-                       <div style="font-size:11px; color:#666; margin-top:5px;">Click to copy caption, then paste on Facebook/Insta!</div>
+                     <!-- SHARE BUTTONS -->
+                     <div style="text-align:center; margin-top:30px; padding:20px; background:#f9f9f9; border-radius:8px;">
+                        <h4 style="text-transform:uppercase; color:#333; margin-bottom:15px;">Share This Story</h4>
+                        <div class="share-btn-container">
+                          <a class="share-btn" style="background:#1877F2" expr:href='&quot;https://www.facebook.com/sharer/sharer.php?u=&quot; + data:post.url' target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                          <a class="share-btn" style="background:black" expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title' target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
+                          <a class="share-btn" style="background:#BD081C" expr:href='&quot;https://pinterest.com/pin/create/button/?url=&quot; + data:post.url + &quot;&amp;media=&quot; + data:post.firstImageUrl' target="_blank"><i class="fa-brands fa-pinterest-p"></i></a>
+                          <a class="share-btn" style="background:#25D366" expr:href='&quot;https://api.whatsapp.com/send?text=&quot; + data:post.title + &quot; &quot; + data:post.url' target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                          <a class="share-btn" style="background:#FF4500" expr:href='&quot;https://www.reddit.com/submit?url=&quot; + data:post.url + &quot;&amp;title=&quot; + data:post.title' target="_blank"><i class="fa-brands fa-reddit"></i></a>
+                          <a class="share-btn" style="background:#0088cc" expr:href='&quot;https://t.me/share/url?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title' target="_blank"><i class="fa-brands fa-telegram"></i></a>
+                        </div>
                      </div>
 
                    <b:else/>
                      <data:post.snippet/>
                      <br/>
-                     <a expr:href='data:post.url' style='font-weight:bold; margin-top:10px; display:inline-block;'>READ MORE...</a>
+                     <a expr:href='data:post.url' class='read-story-btn'>READ STORY</a>
                    </b:if>
                  </div>
                </div>
@@ -365,34 +442,31 @@
 
     <!-- FOOTER -->
     <footer style="background:#333; color:white; padding:20px; text-align:center; margin-top:40px;">
-      Copyright 2025 Cabadokas.
-      <div style="font-size:11px; color:#aaa; margin-top:5px;">All rights reserved.</div>
+      <div style="margin-bottom:20px; display:flex; justify-content:center; gap:15px; font-size:12px; text-transform:uppercase; font-weight:bold;">
+        <a href="/" style="color:#ff69b4;">Home</a>
+        <a href="/p/privacy-policy.html" style="color:#ff69b4;">Privacy Policy</a>
+        <a href="#" style="color:#ff69b4;">Contact</a>
+        <a href="#" style="color:#ff69b4;">Terms</a>
+      </div>
+      Copyright &copy; 2025 reserved by Cabadokas.
+      <div style="font-size:11px; color:#aaa; margin-top:5px;">
+        Anyone who attempts to misuse any image, video, or affiliate link found on this blog will be subject to legal action.
+      </div>
     </footer>
 
     <!-- SCRIPTS -->
     <script>
-      //<![CDATA[
+    //<![CDATA[
       function openLightbox(src){
         document.getElementById('lightbox-img').src = src;
         document.getElementById('lightbox').style.display = 'flex';
       }
-      function smartCopy(title, url) {
-        var text = "✨ NEW POST: " + title + " ✨\n\n👇 Read here:\n" + url + "\n\n#Cabadokas #Health #Beauty";
-        navigator.clipboard.writeText(text).then(function() {
-          alert("Caption Copied! Now paste it on your social media.");
-        });
-      }
-
-      // --- ANTI-THEFT SECURITY (Disable Right Click & Inspect) ---
       document.addEventListener('contextmenu', event => event.preventDefault());
       document.onkeydown = function(e) {
-        if(event.keyCode == 123) { return false; } // F12
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'I'.charCodeAt(0)) { return false; } // Ctrl+Shift+I
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'C'.charCodeAt(0)) { return false; } // Ctrl+Shift+C
-        if(e.ctrlKey && e.shiftKey && e.keyCode == 'J'.charCodeAt(0)) { return false; } // Ctrl+Shift+J
-        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } // Ctrl+U
+        if(event.keyCode == 123) { return false; } 
+        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } 
       }
-      //]]>
+    //]]>
     </script>
 
   </div>

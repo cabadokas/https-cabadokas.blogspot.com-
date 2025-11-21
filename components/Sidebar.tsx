@@ -13,6 +13,45 @@ export const Sidebar: React.FC = () => {
 
       {/* AI Widget - Top Priority */}
       <AiWidget />
+      
+      {/* 💰 MONETIZATION HUB (High Paying Partners) */}
+      <div className="bg-white border-2 border-brand-primary/20 p-6 rounded-lg shadow-md animate-fade-in">
+        <h2 className="text-lg font-bold text-brand-primary border-b-2 border-brand-primary pb-2 mb-4 uppercase flex items-center gap-2">
+          <i className="fas fa-sack-dollar"></i> Earn Money Here
+        </h2>
+        <p className="text-xs text-gray-600 mb-4">
+            To earn high revenue from Ads & Music, click below to sign up with these premium networks:
+        </p>
+        <div className="flex flex-col gap-3">
+            <a 
+                href="https://www.media.net/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-between bg-blue-50 border border-blue-200 text-blue-700 px-4 py-3 rounded font-bold hover:bg-blue-100 transition-colors"
+            >
+                <span>Media.net (High Pay)</span>
+                <i className="fas fa-external-link-alt"></i>
+            </a>
+            <a 
+                href="https://propellerads.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-between bg-indigo-50 border border-indigo-200 text-indigo-700 px-4 py-3 rounded font-bold hover:bg-indigo-100 transition-colors"
+            >
+                <span>PropellerAds (CPM)</span>
+                <i className="fas fa-external-link-alt"></i>
+            </a>
+            <a 
+                href="https://studio.youtube.com/" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="flex items-center justify-between bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded font-bold hover:bg-red-100 transition-colors"
+            >
+                <span>Monetize Music (YT)</span>
+                <i className="fas fa-play-circle"></i>
+            </a>
+        </div>
+      </div>
 
       {/* Social Icons Widget - NOW AT TOP for better visibility */}
       <div className="bg-brand-widget p-6 rounded-lg shadow-sm">
@@ -26,7 +65,8 @@ export const Sidebar: React.FC = () => {
               href={link.url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`w-10 h-10 flex items-center justify-center bg-white rounded-full shadow text-brand-link hover:text-brand-primary hover:scale-110 hover:shadow-md transition-all duration-300 ${link.color || ''}`}
+              className="w-10 h-10 flex items-center justify-center bg-white rounded-full shadow text-brand-link hover:text-brand-primary hover:scale-110 hover:shadow-md transition-all duration-300"
+              style={{ color: link.color || undefined }} 
               aria-label={link.platform}
               title={link.platform}
             >
@@ -78,7 +118,10 @@ export const Sidebar: React.FC = () => {
       </div>
 
       {/* AdSense Ad Unit - MOVED TO BOTTOM so emptiness doesn't push content down */}
-      <GoogleAd className="w-full" />
+      {/* The empty div wrapper ensures no layout shift if empty */}
+      <div className="min-h-[0px]">
+        <GoogleAd className="w-full" />
+      </div>
 
       {/* Contact Form Widget */}
       <div className="bg-brand-widget p-6 rounded-lg shadow-sm">
