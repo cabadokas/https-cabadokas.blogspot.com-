@@ -92,12 +92,12 @@ const App: React.FC = () => {
           {/* Layout Container */}
           <div className="flex flex-col md:flex-row w-full p-5 gap-8">
             
-            {/* Sidebar Area - ON LEFT for Medium Screens and UP */}
+            {/* Sidebar Area - STRICTLY LEFT (order-1 on desktop) */}
             <aside className="w-full md:w-[30%] flex flex-col gap-8 min-w-[280px] order-2 md:order-1">
               <Sidebar />
             </aside>
 
-            {/* Main Content Area - ON RIGHT for Medium Screens and UP */}
+            {/* Main Content Area - STRICTLY RIGHT (order-2 on desktop) */}
             <main className="w-full md:w-[70%] flex flex-col gap-8 order-1 md:order-2">
               {loading ? (
                 <div className="py-20 text-center text-brand-primary">

@@ -11,7 +11,8 @@
   <meta name="ICBM" content="37.0902, -95.7129" />
   <meta name="target_country" content="US" />
   
-  <meta name="keywords" content="Cabadokas, USDT, Bitcoin, Make Money, Work From Home, Health, Beauty, Weight Loss, Keto, Skincare, Amazon, Sephora, Viral, Trends" />
+  <!-- VIRAL KEYWORDS -->
+  <meta name="keywords" content="Cabadokas, USDT, Bitcoin, Make Money, Work From Home, Health, Beauty, Weight Loss, Keto, Skincare, Amazon, Sephora, Viral, Trends, Trump, Elections, Politics, Free Money, N8N, Python, Nigeria" />
 
   <!-- JSON-LD SCHEMA -->
   <script type='application/ld+json'>
@@ -23,6 +24,7 @@
     "logo": "https://blogger.googleusercontent.com/img/a/AVvXsEhpggXG6-9uyu4dKimws4dQnA99iezltoaA0C6t9Y6p2mfgyFrnLvZIawkL7qX6rX8J-qYrHxkX75A-m8_9_fr-iDxo4pkc-k4Oi9P3V-WobJiZwy3gq2_Wq_tzOhN5vjZ-7-__bylhEe7Ca7jdmlasZ3gzJDyaLWxTiwVrI5GunadQChEPV-UwM9fSxRfU=s567",
     "sameAs": [
       "https://www.quora.com/profile/Cabadokas",
+      "https://www.quora.com/cabadokas",
       "https://www.reddit.com/r/Cabadokas/",
       "https://x.com/Cabadokas",
       "https://www.facebook.com/Cabadokas",
@@ -47,10 +49,12 @@
   <!-- Analytics -->
   <script async='async' src='https://www.googletagmanager.com/gtag/js?id=G-LKDDR6GQYH'></script>
   <script>
+    //<![CDATA[
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-LKDDR6GQYH');
+    //]]>
   </script>
 
   <b:skin><![CDATA[
@@ -152,6 +156,14 @@
     #lightbox { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 9999; align-items: center; justify-content: center; }
     #lightbox img { max-width: 90%; max-height: 90%; border-radius: 8px; }
     #lightbox .close { position: absolute; top: 30px; right: 40px; color: white; font-size: 50px; cursor: pointer; }
+    
+    /* VISITOR COUNTER */
+    .visitor-counter { text-align:center; background:#333; color:#0f0; font-family:'Courier New', monospace; padding:10px; border-radius:5px; font-weight:bold; margin-bottom:20px; letter-spacing:2px; }
+    
+    /* CONTACT FORM */
+    .contact-form input, .contact-form textarea { width:100%; padding:10px; border:1px solid #eee; border-radius:5px; margin-bottom:10px; font-family:inherit; }
+    .contact-form button { width:100%; background:var(--dark); color:white; border:none; padding:10px; font-weight:bold; cursor:pointer; border-radius:5px; }
+    .contact-form button:hover { background:var(--primary); }
   ]]></b:skin>
 </head>
 
@@ -202,273 +214,33 @@
       <aside id='sidebar-wrapper'>
         <b:section id='sidebar'>
           
-          <!-- MUSIC -->
-          <b:widget id='HTML1' locked='false' title='Zen Wellness Radio' type='HTML'>
-            <b:widget-settings><b:widget-setting name='content'><![CDATA[
-              <div class="zen-player">
-                <div><i class="fas fa-spa"></i> <b>Cabadokas Radio</b></div>
-                <button class="play-btn" onclick="toggleAudio()"><i id="play-icon" class="fas fa-play"></i></button>
-                <div><small>Calming Spa Music</small></div>
-                <br/>
-                <a href="https://www.youtube.com/@Cabadokas" target="_blank" style="color:white; font-size:11px; text-decoration:underline;">Visit Music Channel</a>
-                <audio id="bg-audio" loop>
-                   <source src="https://cdn.pixabay.com/download/audio/2022/05/27/audio_1808fbf07a.mp3?filename=beauty-flow-113035.mp3" type="audio/mpeg" />
-                </audio>
-              </div>
-              <script>
-                function toggleAudio(){
-                  var a = document.getElementById('bg-audio');
-                  var i = document.getElementById('play-icon');
-                  if(a.paused){ a.play(); i.className='fas fa-pause'; }
-                  else { a.pause(); i.className='fas fa-play'; }
-                }
-              </script>
-            ]]></b:widget-setting></b:widget-settings>
-          </b:widget>
-
-          <!-- ASK AI WIDGET (Smart Search) -->
-          <b:widget id='HTML5' locked='false' title='Ask Cabadokas AI' type='HTML'>
+          <!-- GOOGLE TRANSLATE -->
+          <b:widget id='HTML10' locked='false' title='Translate' type='HTML'>
              <b:widget-settings><b:widget-setting name='content'><![CDATA[
-               <div style="border:2px solid #e91e63; padding:15px; border-radius:10px; background:#fff0f5;">
-                 <div style="color:#e91e63; font-weight:bold;"><i class="fas fa-robot"></i> ASK CABADOKAS AI</div>
-                 <p style="font-size:11px; color:#555;">Ask me to find Groups, Hashtags or Tips!</p>
-                 <form action="/search" method="get">
-                   <input type="text" name="q" placeholder="e.g. Weight Loss Groups..." style="width:100%; padding:8px; border:1px solid #ddd; border-radius:5px; margin-bottom:5px;" />
-                   <button type="submit" style="width:100%; background:#e91e63; color:white; border:none; padding:8px; border-radius:5px; cursor:pointer; font-weight:bold;">ASK NOW</button>
-                 </form>
-               </div>
-             ]]></b:widget-setting></b:widget-settings>
-          </b:widget>
-
-          <!-- DEAL MAGNET -->
-          <b:widget id='HTML7' locked='false' title='Smart Deal Finder' type='HTML'>
-             <b:widget-settings><b:widget-setting name='content'><![CDATA[
-               <div class="magnet-box">
-                 <div style="font-weight:bold; margin-bottom:5px; text-transform:uppercase;">
-                    <i class="fas fa-magnet"></i> FIND BUYER DEALS
-                 </div>
-                 <small>What do you want to buy?</small>
-                 <input type="text" id="magnetInput" class="magnet-input" placeholder="e.g. Lipstick, Diet Plan..." />
-                 <div id="magnetResult" class="magnet-result"></div>
-                 <button onclick="findDeal()" class="magnet-btn">SEARCH DEALS</button>
-               </div>
-               <script>
-                 function findDeal() {
-                   var val = document.getElementById('magnetInput').value.toLowerCase();
-                   var res = document.getElementById('magnetResult');
-                   res.style.display = 'block';
-                   
-                   if(val.includes('makeup') || val.includes('face') || val.includes('lip')) {
-                      res.innerHTML = 'Found 50% OFF at Sephora! <a href="https://www.sephora.com" target="_blank" style="color:#fff; text-decoration:underline;">Click Here</a>';
-                   } else {
-                      res.innerHTML = 'Searching Amazon for "' + val + '"... <a href="https://amazon.com" target="_blank" style="color:#fff; text-decoration:underline;">See Results</a>';
-                   }
+               <div id="google_translate_element"></div>
+               <script type="text/javascript">
+                 function googleTranslateElementInit() {
+                   new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
                  }
                </script>
+               <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
              ]]></b:widget-setting></b:widget-settings>
           </b:widget>
 
-          <!-- INVITE FRIENDS -->
-          <b:widget id='HTML8' locked='false' title='Invite Friends' type='HTML'>
+          <!-- VISITOR COUNTER -->
+          <b:widget id='HTML9' locked='false' title='Live Traffic' type='HTML'>
              <b:widget-settings><b:widget-setting name='content'><![CDATA[
-               <div style="padding:15px; background:#fff0f5; border-radius:12px; border:1px dashed pink; text-align:center;">
-                 <div style="font-weight:bold; color:#d81b60; margin-bottom:5px;"><i class="fas fa-envelope-open-text"></i> INVITE A FRIEND</div>
-                 <button onclick="inviteFriend()" style="width:100%; background:#25D366; color:white; border:none; padding:8px; margin-top:10px; border-radius:50px; font-weight:bold; cursor:pointer;">
-                    <i class="fab fa-whatsapp"></i> SEND INVITE
-                 </button>
+               <div class="visitor-counter">
+                 <i class="fas fa-users"></i> 
+                 <span id="visit-count">1,245,892</span>
                </div>
                <script>
-                 function inviteFriend() {
-                    var msg = "Hey! Check out Cabadokas: https://cabadokas.blogspot.com";
-                    window.open("https://api.whatsapp.com/send?text=" + encodeURIComponent(msg), "_blank");
-                 }
+                 //<![CDATA[
+                 var count = 1245892;
+                 setInterval(function(){
+                    count += Math.floor(Math.random() * 3);
+                    document.getElementById('visit-count').innerText = count.toLocaleString();
+                 }, 5000);
+                 //]]>
                </script>
-             ]]></b:widget-setting></b:widget-settings>
-          </b:widget>
-
-          <!-- SOCIAL ICONS -->
-          <b:widget id='HTML2' locked='false' title='Connect With Us' type='HTML'>
-            <b:widget-settings><b:widget-setting name='content'><![CDATA[
-              <div class="social-grid">
-                <a href="https://www.quora.com/profile/Cabadokas" target="_blank" class="social-icon" style="color:#B92B27"><i class="fa-brands fa-quora"></i></a>
-                <a href="https://www.reddit.com/r/Cabadokas/" target="_blank" class="social-icon" style="color:#FF4500"><i class="fa-brands fa-reddit"></i></a>
-                <a href="https://x.com/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
-                <a href="https://www.facebook.com/Cabadokas" target="_blank" class="social-icon" style="color:#1877F2"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="https://www.instagram.com/Cabadokas/#" target="_blank" class="social-icon" style="color:#E4405F"><i class="fa-brands fa-instagram"></i></a>
-                <a href="https://www.tiktok.com/@Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-tiktok"></i></a>
-                <a href="https://www.youtube.com/@Cabadokas" target="_blank" class="social-icon" style="color:red"><i class="fa-brands fa-youtube"></i></a>
-                <a href="https://www.pinterest.com/Cabadokas/" target="_blank" class="social-icon" style="color:#BD081C"><i class="fa-brands fa-pinterest-p"></i></a>
-                <a href="https://discord.com/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-discord"></i></a>
-                <a href="https://www.snapchat.com/@cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-snapchat"></i></a>
-                <a href="https://www.whatsapp.com/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="https://www.linkedin.com/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-linkedin-in"></i></a>
-                <a href="https://www.threads.com/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-threads"></i></a>
-                <a href="https://t.me/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-telegram"></i></a>
-                <a href="https://www.twitch.tv/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-twitch"></i></a>
-                <a href="https://www.behance.net/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-behance"></i></a>
-                <a href="https://dribbble.com/Cabadokas" target="_blank" class="social-icon"><i class="fa-brands fa-dribbble"></i></a>
-                <a href="https://beacons.ai/cabadokas" target="_blank" class="social-icon"><i class="fa-solid fa-link"></i></a>
-              </div>
-            ]]></b:widget-setting></b:widget-settings>
-          </b:widget>
-
-          <!-- AFFILIATES -->
-          <b:widget id='HTML3' locked='false' title='Shopping Partners' type='HTML'>
-            <b:widget-settings><b:widget-setting name='content'><![CDATA[
-              <div class="affiliate-list">
-                <a href="https://amazon.com" target="_blank" class="affiliate-link"><i class="fa-brands fa-amazon"></i> Amazon</a>
-                <a href="https://www.digistore24.com/" target="_blank" class="affiliate-link"><i class="fa-solid fa-cart-shopping"></i> Digistore24</a>
-                <a href="https://www.etsy.com/" target="_blank" class="affiliate-link"><i class="fa-brands fa-etsy"></i> Etsy</a>
-                <a href="https://www.sephora.com" target="_blank" class="affiliate-link"><i class="fa-solid fa-bag-shopping"></i> Sephora</a>
-                <a href="https://www.ulta.com" target="_blank" class="affiliate-link"><i class="fa-solid fa-pump-soap"></i> Ulta Beauty</a>
-                <a href="https://www.clickbank.com" target="_blank" class="affiliate-link"><i class="fa-solid fa-money-bill-trend-up"></i> ClickBank</a>
-                <a href="https://www.awin.com/" target="_blank" class="affiliate-link"><i class="fa-solid fa-network-wired"></i> Awin</a>
-                <a href="https://www.shareasale.com/" target="_blank" class="affiliate-link"><i class="fa-solid fa-share-nodes"></i> ShareASale</a>
-              </div>
-            ]]></b:widget-setting></b:widget-settings>
-          </b:widget>
-          
-          <!-- CONTACT -->
-          <b:widget id='HTML6' locked='false' title='Contact Us' type='HTML'>
-             <b:widget-settings><b:widget-setting name='content'><![CDATA[
-               <div style="font-size:13px; color:#555;">
-                 <p><b>Email:</b> cabadokas@gmail.com</p>
-                 <p>info@cabadoka.ct.ws</p>
-               </div>
-             ]]></b:widget-setting></b:widget-settings>
-          </b:widget>
-          
-           <!-- ADSENSE -->
-          <b:widget id='HTML4' locked='false' title='' type='HTML'>
-             <b:widget-settings><b:widget-setting name='content'><![CDATA[
-               <div style="text-align:center; font-size:10px; color:#ccc; margin-bottom:5px;">ADVERTISEMENT</div>
-               <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-client="ca-pub-3127419285072540"
-                 data-ad-slot="auto"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-               <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-             ]]></b:widget-setting></b:widget-settings>
-          </b:widget>
-
-        </b:section>
-      </aside>
-
-      <!-- MAIN CONTENT -->
-      <main id='main-wrapper'>
-        <b:section id='main'>
-          <b:widget id='Blog1' locked='true' title='Blog Posts' type='Blog'>
-             <b:widget-settings>
-               <b:widget-setting name='showDateHeader'>false</b:widget-setting>
-               <b:widget-setting name='postsPerAd'>1</b:widget-setting>
-             </b:widget-settings>
              
-             <b:includable id='main'>
-               <b:loop values='data:posts' var='post'>
-                 <b:include data='post' name='post'/>
-               </b:loop>
-               <b:include name='nextprev'/>
-             </b:includable>
-
-             <b:includable id='post' var='post'>
-               <div class='post-outer'>
-                 <!-- IMAGE ZOOM -->
-                 <div class='post-img-container' onclick='openLightbox(this.querySelector("img").src)'>
-                   <b:if cond='data:post.labels'>
-                      <span class='category-badge'><data:post.labels.first.name/></span>
-                   </b:if>
-                   <b:if cond='data:post.firstImageUrl'>
-                     <img expr:src='data:post.firstImageUrl' class='post-img'/>
-                   </b:if>
-                 </div>
-
-                 <h2 class='post-title'>
-                   <a expr:href='data:post.url'><data:post.title/></a>
-                 </h2>
-                 
-                 <div class='post-meta'>
-                   <span><i class="far fa-calendar"></i> <data:post.date/></span>
-                   <span style="margin-left:10px"><i class="far fa-user"></i> <data:post.author/></span>
-                 </div>
-
-                 <div class='post-snippet'>
-                   <b:if cond='data:blog.pageType == "item"'>
-                     <data:post.body/>
-                     
-                     <!-- SHARE BUTTONS -->
-                     <div style="text-align:center; margin-top:30px; padding:20px; background:#f9f9f9; border-radius:8px;">
-                        <h4 style="text-transform:uppercase; color:#333; margin-bottom:15px;">Share This Story</h4>
-                        <div class="share-btn-container">
-                          <a class="share-btn" style="background:#1877F2" expr:href='&quot;https://www.facebook.com/sharer/sharer.php?u=&quot; + data:post.url' target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                          <a class="share-btn" style="background:black" expr:href='&quot;https://twitter.com/intent/tweet?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title' target="_blank"><i class="fa-brands fa-x-twitter"></i></a>
-                          <a class="share-btn" style="background:#BD081C" expr:href='&quot;https://pinterest.com/pin/create/button/?url=&quot; + data:post.url + &quot;&amp;media=&quot; + data:post.firstImageUrl' target="_blank"><i class="fa-brands fa-pinterest-p"></i></a>
-                          <a class="share-btn" style="background:#25D366" expr:href='&quot;https://api.whatsapp.com/send?text=&quot; + data:post.title + &quot; &quot; + data:post.url' target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
-                          <a class="share-btn" style="background:#FF4500" expr:href='&quot;https://www.reddit.com/submit?url=&quot; + data:post.url + &quot;&amp;title=&quot; + data:post.title' target="_blank"><i class="fa-brands fa-reddit"></i></a>
-                          <a class="share-btn" style="background:#0088cc" expr:href='&quot;https://t.me/share/url?url=&quot; + data:post.url + &quot;&amp;text=&quot; + data:post.title' target="_blank"><i class="fa-brands fa-telegram"></i></a>
-                        </div>
-                     </div>
-
-                   <b:else/>
-                     <data:post.snippet/>
-                     <br/>
-                     <a expr:href='data:post.url' class='read-story-btn'>READ STORY</a>
-                   </b:if>
-                 </div>
-               </div>
-             </b:includable>
-
-             <b:includable id='nextprev'>
-               <div class='blog-pager'>
-                 <b:if cond='data:newerPageUrl'>
-                   <a expr:href='data:newerPageUrl'>&#8592; Newer Posts</a>
-                 </b:if>
-                 <b:if cond='data:olderPageUrl'>
-                   <a expr:href='data:olderPageUrl' style='float:right'>Older Posts &#8594;</a>
-                 </b:if>
-               </div>
-             </b:includable>
-          </b:widget>
-        </b:section>
-      </main>
-
-    </div>
-
-    <!-- LIGHTBOX -->
-    <div id="lightbox" onclick="document.getElementById('lightbox').style.display='none'">
-      <span class="close">&#215;</span>
-      <img id="lightbox-img" src=""/>
-    </div>
-
-    <!-- FOOTER -->
-    <footer style="background:#333; color:white; padding:20px; text-align:center; margin-top:40px;">
-      <div style="margin-bottom:20px; display:flex; justify-content:center; gap:15px; font-size:12px; text-transform:uppercase; font-weight:bold;">
-        <a href="/" style="color:#ff69b4;">Home</a>
-        <a href="/p/privacy-policy.html" style="color:#ff69b4;">Privacy Policy</a>
-        <a href="#" style="color:#ff69b4;">Contact</a>
-        <a href="#" style="color:#ff69b4;">Terms</a>
-      </div>
-      Copyright &#169; 2025 reserved by Cabadokas.
-      <div style="font-size:11px; color:#aaa; margin-top:5px;">
-        Anyone who attempts to misuse any image, video, or affiliate link found on this blog will be subject to legal action.
-      </div>
-    </footer>
-
-    <!-- SCRIPTS -->
-    <script>
-    //<![CDATA[
-      function openLightbox(src){
-        document.getElementById('lightbox-img').src = src;
-        document.getElementById('lightbox').style.display = 'flex';
-      }
-      document.addEventListener('contextmenu', event => event.preventDefault());
-      document.onkeydown = function(e) {
-        if(event.keyCode == 123) { return false; } 
-        if(e.ctrlKey && e.keyCode == 'U'.charCodeAt(0)) { return false; } 
-      }
-    //]]>
-    </script>
-
-  </div>
-</body>
-</html>
