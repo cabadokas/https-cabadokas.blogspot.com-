@@ -15,7 +15,7 @@ export interface SocialLink {
   platform: string;
   url: string;
   iconClass: string; // FontAwesome class
-  color?: string;
+  hexColor?: string;
 }
 
 export interface NavItem {

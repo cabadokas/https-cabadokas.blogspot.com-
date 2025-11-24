@@ -1,5 +1,5 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { ADSENSE_CLIENT_ID } from '../constants';
 
 interface GoogleAdProps {
@@ -9,13 +9,22 @@ interface GoogleAdProps {
 }
 
 export const GoogleAd: React.FC<GoogleAdProps> = ({ slot, format = 'auto', className = '' }) => {
+  const adRef = useRef<HTMLModElement>(null);
+
   useEffect(() => {
-    try {
-      // @ts-ignore
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
-    } catch (e) {
-      console.error("AdSense error:", e);
-    }
+    // Delay the push to ensure the DOM layout is calculated (fixes availableWidth=0 error)
+    const timer = setTimeout(() => {
+      if (adRef.current && adRef.current.offsetWidth > 0) {
+        try {
+          // @ts-ignore
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+          console.error("AdSense error:", e);
+        }
+      }
+    }, 1000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   if (!ADSENSE_CLIENT_ID || ADSENSE_CLIENT_ID.includes("XX")) {
@@ -27,10 +36,11 @@ export const GoogleAd: React.FC<GoogleAdProps> = ({ slot, format = 'auto', class
   }
 
   return (
-    <div className={`w-full my-4 flex flex-col items-center justify-center ${className}`}>
+    <div className={`w-full my-4 flex flex-col items-center justify-center overflow-hidden ${className}`}>
       <span className="text-[10px] text-gray-300 uppercase tracking-widest mb-1">Advertisement</span>
       <ins className="adsbygoogle"
-           style={{ display: 'block', minHeight: '100px', width: '100%' }}
+           ref={adRef}
+           style={{ display: 'block', minHeight: '100px', width: '100%', minWidth: '250px' }}
            data-ad-client={ADSENSE_CLIENT_ID}
            data-ad-slot={slot}
            data-ad-format={format}

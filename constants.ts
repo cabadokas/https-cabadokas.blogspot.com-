@@ -3,28 +3,28 @@ import { BlogPost, SocialLink, NavItem } from './types';
 
 export const APP_NAME = "Cabadokas";
 
-// REPLACE THIS WITH YOUR REAL ADSENSE PUBLISHER ID
 export const ADSENSE_CLIENT_ID = "ca-pub-3127419285072540"; 
 
 export const SOCIAL_LINKS: SocialLink[] = [
-  { platform: 'Quora', url: 'https://www.quora.com/profile/Cabadokas', iconClass: 'fa-brands fa-quora', color: 'text-[#B92B27]' },
-  { platform: 'Reddit', url: 'https://www.reddit.com/r/Cabadokas/', iconClass: 'fa-brands fa-reddit', color: 'text-[#FF4500]' },
-  { platform: 'X', url: 'https://x.com/Cabadokas', iconClass: 'fa-brands fa-x-twitter' },
-  { platform: 'Facebook', url: 'https://www.facebook.com/Cabadokas', iconClass: 'fa-brands fa-facebook-f' },
-  { platform: 'Instagram', url: 'https://www.instagram.com/Cabadokas/#', iconClass: 'fa-brands fa-instagram' },
-  { platform: 'TikTok', url: 'https://www.tiktok.com/@Cabadokas', iconClass: 'fa-brands fa-tiktok' },
-  { platform: 'Discord', url: 'https://discord.com/Cabadokas', iconClass: 'fa-brands fa-discord' },
-  { platform: 'Snapchat', url: 'https://www.snapchat.com/@cabadokas', iconClass: 'fa-brands fa-snapchat' },
-  { platform: 'YouTube', url: 'https://www.youtube.com/@Cabadokas', iconClass: 'fa-brands fa-youtube' },
-  { platform: 'WhatsApp', url: 'https://www.whatsapp.com/Cabadokas', iconClass: 'fa-brands fa-whatsapp' },
-  { platform: 'Behance', url: 'https://www.behance.net/Cabadokas', iconClass: 'fa-brands fa-behance' },
-  { platform: 'Threads', url: 'https://www.threads.com/Cabadokas', iconClass: 'fa-brands fa-threads' },
-  { platform: 'LinkedIn', url: 'https://www.linkedin.com/Cabadokas', iconClass: 'fa-brands fa-linkedin-in' },
-  { platform: 'Dribbble', url: 'https://dribbble.com/Cabadokas', iconClass: 'fa-brands fa-dribbble' },
-  { platform: 'Pinterest', url: 'https://www.pinterest.com/Cabadokas/', iconClass: 'fa-brands fa-pinterest-p' },
-  { platform: 'Twitch', url: 'https://www.twitch.tv/Cabadokas', iconClass: 'fa-brands fa-twitch' },
-  { platform: 'Telegram', url: 'https://t.me/Cabadokas', iconClass: 'fa-brands fa-telegram' },
-  { platform: 'Beacons', url: 'https://beacons.ai/cabadokas', iconClass: 'fa-solid fa-link' },
+  { platform: 'Quora', url: 'https://www.quora.com/profile/Cabadokas', iconClass: 'fa-brands fa-quora', hexColor: '#B92B27' },
+  { platform: 'Reddit', url: 'https://www.reddit.com/r/Cabadokas/', iconClass: 'fa-brands fa-reddit', hexColor: '#FF4500' },
+  { platform: 'X', url: 'https://x.com/Cabadokas', iconClass: 'fa-brands fa-x-twitter', hexColor: '#000000' },
+  { platform: 'Facebook', url: 'https://www.facebook.com/Cabadokas', iconClass: 'fa-brands fa-facebook-f', hexColor: '#1877F2' },
+  { platform: 'Instagram', url: 'https://www.instagram.com/Cabadokas/#', iconClass: 'fa-brands fa-instagram', hexColor: '#E4405F' },
+  { platform: 'TikTok', url: 'https://www.tiktok.com/@Cabadokas', iconClass: 'fa-brands fa-tiktok', hexColor: '#000000' },
+  { platform: 'Discord', url: 'https://discord.com/Cabadokas', iconClass: 'fa-brands fa-discord', hexColor: '#5865F2' },
+  { platform: 'Snapchat', url: 'https://www.snapchat.com/@cabadokas', iconClass: 'fa-brands fa-snapchat', hexColor: '#FFFC00' },
+  { platform: 'YouTube', url: 'https://www.youtube.com/@Cabadokas', iconClass: 'fa-brands fa-youtube', hexColor: '#FF0000' },
+  { platform: 'WhatsApp', url: 'https://www.whatsapp.com/Cabadokas', iconClass: 'fa-brands fa-whatsapp', hexColor: '#25D366' },
+  { platform: 'Behance', url: 'https://www.behance.net/Cabadokas', iconClass: 'fa-brands fa-behance', hexColor: '#1769FF' },
+  { platform: 'Threads', url: 'https://www.threads.com/Cabadokas', iconClass: 'fa-brands fa-threads', hexColor: '#000000' },
+  { platform: 'LinkedIn', url: 'https://www.linkedin.com/Cabadokas', iconClass: 'fa-brands fa-linkedin-in', hexColor: '#0A66C2' },
+  { platform: 'Dribbble', url: 'https://dribbble.com/Cabadokas', iconClass: 'fa-brands fa-dribbble', hexColor: '#EA4C89' },
+  { platform: 'Pinterest', url: 'https://www.pinterest.com/Cabadokas/', iconClass: 'fa-brands fa-pinterest-p', hexColor: '#BD081C' },
+  { platform: 'Twitch', url: 'https://www.twitch.tv/Cabadokas', iconClass: 'fa-brands fa-twitch', hexColor: '#9146FF' },
+  { platform: 'Telegram', url: 'https://t.me/Cabadokas', iconClass: 'fa-brands fa-telegram', hexColor: '#0088cc' },
+  { platform: 'Beacons', url: 'https://beacons.ai/cabadokas', iconClass: 'fa-solid fa-link', hexColor: '#000000' },
+  { platform: 'Main Site', url: 'https://cabadokas.netlify.app/', iconClass: 'fa-solid fa-globe', hexColor: '#ff69b4' },
 ];
 
 export const AFFILIATE_PARTNERS = [
@@ -33,9 +33,18 @@ export const AFFILIATE_PARTNERS = [
   { name: 'Etsy', url: 'https://www.etsy.com/', iconClass: 'fa-brands fa-etsy' },
   { name: 'Awin', url: 'https://www.awin.com/', iconClass: 'fa-solid fa-network-wired' },
   { name: 'ShareASale', url: 'https://www.shareasale.com/', iconClass: 'fa-solid fa-share-nodes' },
-  { name: 'Sephora', url: 'https://www.sephora.com', iconClass: 'fa-solid fa-bag-shopping' },
-  { name: 'Ulta Beauty', url: 'https://www.ulta.com', iconClass: 'fa-solid fa-pump-soap' },
+  { name: 'eBay', url: 'https://ebay.com', iconClass: 'fa-brands fa-ebay' },
+  { name: 'Walmart', url: 'https://walmart.com', iconClass: 'fa-solid fa-shop' },
+  { name: 'Target', url: 'https://target.com', iconClass: 'fa-solid fa-bullseye' },
+  { name: 'AliExpress', url: 'https://aliexpress.com', iconClass: 'fa-solid fa-bag-shopping' },
+  { name: 'Rakuten', url: 'https://rakuten.com', iconClass: 'fa-solid fa-r' },
+  { name: 'CJ Affiliate', url: 'https://cj.com', iconClass: 'fa-solid fa-handshake' },
   { name: 'ClickBank', url: 'https://www.clickbank.com', iconClass: 'fa-solid fa-money-bill-trend-up' },
+  { name: 'Lookfantastic', url: 'https://lookfantastic.com', iconClass: 'fa-solid fa-spray-can' },
+  { name: 'Sephora', url: 'https://www.sephora.com', iconClass: 'fa-solid fa-bag-shopping' },
+  { name: 'Algo-Affiliates', url: 'https://algo-affiliates.com/', iconClass: 'fa-solid fa-chart-line' },
+  { name: 'Ulta Beauty', url: 'https://www.ulta.com', iconClass: 'fa-solid fa-pump-soap' },
+  { name: 'Nordstrom', url: 'https://nordstrom.com', iconClass: 'fa-solid fa-shirt' },
 ];
 
 export const NAV_ITEMS: NavItem[] = [
@@ -47,7 +56,6 @@ export const NAV_ITEMS: NavItem[] = [
   { label: 'WEIGHT LOSS', value: 'WEIGHT LOSS' },
 ];
 
-// Enhanced fallback data in case fetch fails
 export const MOCK_POSTS: BlogPost[] = [
   {
     id: '1',
