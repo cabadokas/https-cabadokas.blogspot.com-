@@ -162,23 +162,25 @@
         <li><a href='/'>HOME</a></li>
         <li><a href='/p/privacy-policy.html'>PRIVACY POLICY</a></li>
         <li class="dropdown">
-          <a href="javascript:void(0)">BROWSE PAGES &#9662;</a>
+          <a href="javascript:void(0)">CATEGORIES &#9662;</a>
           <div class="dropdown-content">
-            <a href='/search/label/HEALTH'>Health Tips</a>
-            <a href='/search/label/BEAUTY'>Beauty Guides</a>
+            <a href='/search/label/HEALTH'>Health</a>
+            <a href='/search/label/BEAUTY'>Beauty</a>
             <a href='/search/label/WEIGHT%20LOSS'>Weight Loss</a>
             <a href='/search/label/LIFESTYLE'>Lifestyle</a>
-            <!-- ADD NEW PAGES HERE -->
+            <!-- COPY THIS LINE TO ADD MORE LINKS -->
+            <!-- <a href='/search/label/YOUR_CATEGORY'>Category Name</a> -->
           </div>
         </li>
       </ul>
       <select class="menu-mobile" onchange="window.location.href=this.value">
-        <option value="" disabled="disabled" selected="selected">BROWSE PAGES ☰</option>
+        <option value="" disabled="disabled" selected="selected">CATEGORIES ☰</option>
         <option value="/">Home</option>
         <option value="/p/privacy-policy.html">Privacy Policy</option>
         <option value="/search/label/HEALTH">Health</option>
         <option value="/search/label/BEAUTY">Beauty</option>
         <option value="/search/label/WEIGHT%20LOSS">Weight Loss</option>
+        <option value="/search/label/LIFESTYLE">Lifestyle</option>
       </select>
     </nav>
 
